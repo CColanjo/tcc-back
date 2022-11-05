@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:49913",
+      "sslPort": 44311
+    }
+  },
+  "profiles": {
+    "dart": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "URL_DATABASE": "localhost:5432",
+        "USER_DATABASE": "postgres",
+        "DB_PASS": "1234",
+        "DB_DATABASE": "postgres"
+      },
+      "applicationUrl": "https://localhost:7226;http://localhost:5226",
+      "dotnetRunMessages": true
+    }
+  }
+}

@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32113.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduleAppointment", "scheduleAppointment\scheduleAppointment.csproj", "{2BED883B-E619-48F2-927F-6A4676CE62D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apresentation", "1-Apresentation", "{C933F1CF-F288-493D-B37B-01A53A73ED27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{25F08ABB-B83C-4772-92AD-12E102109B9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{258832A5-CD6A-429C-8FA0-6E71B3469F79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{B63FF548-102A-4789-9102-356262F09B4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-service", "schedule-appointment-service\schedule-appointment-service.csproj", "{F6CF0E2E-558F-4080-9B06-548A06673CDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-domain", "schedule-appointment-domain\schedule-appointment-domain.csproj", "{E11D8CB1-E43F-4393-9829-83A88CBB61AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-infra", "schedule-appointment-infra\schedule-appointment-infra.csproj", "{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-infra-Ioc", "schedule-appointment-infra-Ioc\schedule-appointment-infra-Ioc.csproj", "{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BED883B-E619-48F2-927F-6A4676CE62D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BED883B-E619-48F2-927F-6A4676CE62D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BED883B-E619-48F2-927F-6A4676CE62D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BED883B-E619-48F2-927F-6A4676CE62D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CF0E2E-558F-4080-9B06-548A06673CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CF0E2E-558F-4080-9B06-548A06673CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CF0E2E-558F-4080-9B06-548A06673CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CF0E2E-558F-4080-9B06-548A06673CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E11D8CB1-E43F-4393-9829-83A88CBB61AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11D8CB1-E43F-4393-9829-83A88CBB61AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11D8CB1-E43F-4393-9829-83A88CBB61AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11D8CB1-E43F-4393-9829-83A88CBB61AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2BED883B-E619-48F2-927F-6A4676CE62D7} = {C933F1CF-F288-493D-B37B-01A53A73ED27}
+		{F6CF0E2E-558F-4080-9B06-548A06673CDD} = {25F08ABB-B83C-4772-92AD-12E102109B9E}
+		{E11D8CB1-E43F-4393-9829-83A88CBB61AF} = {258832A5-CD6A-429C-8FA0-6E71B3469F79}
+		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB} = {B63FF548-102A-4789-9102-356262F09B4B}
+		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA} = {B63FF548-102A-4789-9102-356262F09B4B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48DE19B9-C322-40F4-8124-B5F56F5ECE41}
+	EndGlobalSection
+EndGlobal
