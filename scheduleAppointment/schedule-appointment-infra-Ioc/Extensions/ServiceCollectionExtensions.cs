@@ -28,6 +28,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IScheduleRepository, ScheduleRepository>();
+          
             return services;
         }
 
@@ -37,7 +38,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IScheduleService, ScheduleService>();
-
+            services.AddScoped<ISendMessageAutomaticService, SendMessageAutomaticService>();
             services.AddScoped<IUser, AspNetUser>();
 
             return services;

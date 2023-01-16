@@ -6,11 +6,6 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_infra.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace schedule_appointment_infra.Repositories
 {
@@ -90,6 +85,28 @@ namespace schedule_appointment_infra.Repositories
         { 
              return await _context.Schedule.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id); 
             
+        }
+
+        public async Task<IEnumerable<SendMessageAutomaticResponse>> GetByDateNowAsync()
+        {
+            return await
+            (
+                 from schedule in _context.Schedule.AsNoTracking()
+                 join client in _context.Client.AsNoTracking()
+                 on schedule.ClientId equals client.Id
+                 where
+                     schedule.ScheduleDate.Year == DateTime.Now.Year &&
+                     schedule.ScheduleDate.Month == DateTime.Now.Month &&
+                     schedule.ScheduleDate.Day == (DateTime.Now.Day+1) &&
+                     schedule.WillAttend == true
+                 orderby schedule.ScheduleDate
+                 select
+                     new SendMessageAutomaticResponse
+                     {
+                         Name = client.Name,    
+                         Cellphone = client.Cellphone,
+                     }
+             ).ToListAsync();
         }
     }
 }

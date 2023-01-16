@@ -139,6 +139,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.21.0, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[5.81.1, )"
             }
           },
           "imports": [

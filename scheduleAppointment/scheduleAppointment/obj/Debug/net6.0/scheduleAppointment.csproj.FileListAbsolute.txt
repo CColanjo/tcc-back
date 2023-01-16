@@ -162,7 +162,8 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\scopedcss\bundle\scheduleAppointment.styles.css
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\scheduleAppointment.csproj.CopyComplete
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\scheduleAppointment.dll
-C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\refint\scheduleAppointment.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\scheduleAppointment.pdb
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\scheduleAppointment.genruntimeconfig.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\Twilio.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\refint\scheduleAppointment.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\ref\scheduleAppointment.dll

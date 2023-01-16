@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32113.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduleAppointment", "scheduleAppointment\scheduleAppointment.csproj", "{2BED883B-E619-48F2-927F-6A4676CE62D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scheduleAppointment", "scheduleAppointment\scheduleAppointment.csproj", "{2BED883B-E619-48F2-927F-6A4676CE62D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apresentation", "1-Apresentation", "{C933F1CF-F288-493D-B37B-01A53A73ED27}"
 EndProject
@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{25
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{B63FF548-102A-4789-9102-356262F09B4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-service", "schedule-appointment-service\schedule-appointment-service.csproj", "{F6CF0E2E-558F-4080-9B06-548A06673CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "schedule-appointment-service", "schedule-appointment-service\schedule-appointment-service.csproj", "{F6CF0E2E-558F-4080-9B06-548A06673CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-domain", "schedule-appointment-domain\schedule-appointment-domain.csproj", "{E11D8CB1-E43F-4393-9829-83A88CBB61AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "schedule-appointment-domain", "schedule-appointment-domain\schedule-appointment-domain.csproj", "{E11D8CB1-E43F-4393-9829-83A88CBB61AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-infra", "schedule-appointment-infra\schedule-appointment-infra.csproj", "{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "schedule-appointment-infra", "schedule-appointment-infra\schedule-appointment-infra.csproj", "{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule-appointment-infra-Ioc", "schedule-appointment-infra-Ioc\schedule-appointment-infra-Ioc.csproj", "{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "schedule-appointment-infra-Ioc", "schedule-appointment-infra-Ioc\schedule-appointment-infra-Ioc.csproj", "{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Tests", "5-Tests", "{8ABEB204-64E7-482A-99FA-A743743C4E67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
