@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "schedule-appointment-infra-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Tests", "5-Tests", "{8ABEB204-64E7-482A-99FA-A743743C4E67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduleAppointment-tests", "scheduleAppointment-tests\scheduleAppointment-tests.csproj", "{D993E5B2-8A2E-4B77-A328-0BD37E1105E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D993E5B2-8A2E-4B77-A328-0BD37E1105E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D993E5B2-8A2E-4B77-A328-0BD37E1105E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D993E5B2-8A2E-4B77-A328-0BD37E1105E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D993E5B2-8A2E-4B77-A328-0BD37E1105E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{E11D8CB1-E43F-4393-9829-83A88CBB61AF} = {258832A5-CD6A-429C-8FA0-6E71B3469F79}
 		{5DB6F30C-14D5-4BDA-8DAC-DD6A42E26BCB} = {B63FF548-102A-4789-9102-356262F09B4B}
 		{CC7C41B9-03A4-4A6F-BE07-B63647E001FA} = {B63FF548-102A-4789-9102-356262F09B4B}
+		{D993E5B2-8A2E-4B77-A328-0BD37E1105E8} = {8ABEB204-64E7-482A-99FA-A743743C4E67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48DE19B9-C322-40F4-8124-B5F56F5ECE41}

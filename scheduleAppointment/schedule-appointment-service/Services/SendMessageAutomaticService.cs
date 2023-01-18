@@ -44,7 +44,7 @@ namespace schedule_appointment_service.Services
 
         public void sendMessage(string name, string cellphone)
         {
-            Console.WriteLine(name + cellphone);
+         
             //try
             //{
             //    string accountSid = "ACd62af68b695a818d51690bb768ae22ee";

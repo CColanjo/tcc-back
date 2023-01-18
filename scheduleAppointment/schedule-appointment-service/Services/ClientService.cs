@@ -18,6 +18,7 @@ namespace schedule_appointment_service.Services
     {
         private readonly IClientRepository _clientRepository;
         private readonly IUnitOfWork _uow;
+       
 
         public ClientService(IClientRepository clientRepository, IUnitOfWork uow)
         {
@@ -25,6 +26,7 @@ namespace schedule_appointment_service.Services
             _uow = uow;
 
         }
+
 
         public async Task<int> CreateAsync(ClientViewModel.ClientCreateViewModel clientCreateViewModel)
         {
