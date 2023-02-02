@@ -1,0 +1,15 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\bin\Debug\net6.0\net6.0.exe
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\bin\Debug\net6.0\net6.0.deps.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\bin\Debug\net6.0\net6.0.runtimeconfig.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\bin\Debug\net6.0\net6.0.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\bin\Debug\net6.0\net6.0.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.csproj.AssemblyReference.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.AssemblyInfoInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.AssemblyInfo.cs
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.csproj.CoreCompileInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\refint\net6.0.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\net6.0.genruntimeconfig.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\obj\Debug\net6.0\ref\net6.0.dll

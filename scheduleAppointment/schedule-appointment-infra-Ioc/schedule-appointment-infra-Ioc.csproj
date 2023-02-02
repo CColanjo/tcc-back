@@ -19,4 +19,10 @@
     <ProjectReference Include="..\schedule-appointment-service\schedule-appointment-service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Cyphers\cypher.pem">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

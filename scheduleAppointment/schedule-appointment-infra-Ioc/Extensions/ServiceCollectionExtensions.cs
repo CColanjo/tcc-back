@@ -56,6 +56,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
         {
             var path = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Cyphers\\cypher.pem");
 
+
             var jwtCredentialsProvider = new JwtCredentialsProvider(path);
             services.AddSingleton(jwtCredentialsProvider);
 
@@ -129,11 +130,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
             var password_database = Environment.GetEnvironmentVariable("DB_PASS");
 
             string connectionString = string.Empty;
-
-            if(string.IsNullOrEmpty(url_database) || string.IsNullOrEmpty(db_database) || string.IsNullOrEmpty(user_database) || string.IsNullOrEmpty(password_database))
-                connectionString = configuration.GetConnectionString("Default");
-            else
-                connectionString = $"Host={url_database};Port=5432;Pooling=true;Database={db_database};UserId={user_database};Password={password_database};";
+            connectionString = $"Host=schedule.c1w1x9gqcee6.us-east-1.rds.amazonaws.com;Port=5432;Pooling=true;Database=schedule;UserId=postgres;Password=&T1m%142,;";
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(connectionString,

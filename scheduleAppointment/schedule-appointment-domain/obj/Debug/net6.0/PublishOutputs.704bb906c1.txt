@@ -1,0 +1,10 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\schedule-appointment-domain.deps.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\schedule-appointment-domain.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.AspNetCore.Routing.Abstractions.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.Extensions.Primitives.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Microsoft.Net.Http.Headers.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\site\Newtonsoft.Json.dll

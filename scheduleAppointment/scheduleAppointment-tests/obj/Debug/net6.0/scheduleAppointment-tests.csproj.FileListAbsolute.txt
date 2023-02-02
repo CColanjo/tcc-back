@@ -4,6 +4,7 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\scheduleAppointment.runtimeconfig.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\appsettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\aws-beanstalk-tools-defaults.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\scheduleAppointment.exe
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\testhost.exe
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll

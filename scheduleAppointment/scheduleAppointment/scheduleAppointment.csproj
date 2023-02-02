@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Properties\launchSettings.json" />
+    <Content Include="Properties\launchSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +32,12 @@
   <ItemGroup>
     <ProjectReference Include="..\schedule-appointment-domain\schedule-appointment-domain.csproj" />
     <ProjectReference Include="..\schedule-appointment-infra-Ioc\schedule-appointment-infra-Ioc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Cyphers\cypher.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mC8kBuedgHY+kEnXpDBxqIQevtbtsxh665vIZywofH8=",
+  "Source": "scheduleAppointment",
+  "BasePath": "_content/scheduleAppointment",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

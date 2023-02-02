@@ -1,0 +1,12 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Release\net6.0\schedule-appointment-domain.deps.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Release\net6.0\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Release\net6.0\schedule-appointment-domain.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.csproj.AssemblyReference.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.AssemblyInfoInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.AssemblyInfo.cs
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.csproj.CoreCompileInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\refint\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\schedule-appointment-domain.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Release\net6.0\ref\schedule-appointment-domain.dll

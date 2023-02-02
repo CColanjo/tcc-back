@@ -1,0 +1,17 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-infra.deps.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-infra.runtimeconfig.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-infra.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-infra.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\bin\Release\net6.0\schedule-appointment-domain.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.csproj.AssemblyReference.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.AssemblyInfoInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.AssemblyInfo.cs
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.csproj.CoreCompileInputs.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.csproj.CopyComplete
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\refint\schedule-appointment-infra.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.pdb
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\schedule-appointment-infra.genruntimeconfig.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-infra\obj\Release\net6.0\ref\schedule-appointment-infra.dll
