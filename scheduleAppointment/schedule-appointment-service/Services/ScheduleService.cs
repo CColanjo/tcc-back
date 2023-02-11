@@ -91,38 +91,30 @@ namespace schedule_appointment_service.Services
             var schedules = await _scheduleRepository.GetAllPageableAsync(clientPageableRequest);
             return schedules;
         }
-
-        public async Task GetClientsToSendMessageAsync(DateTime date)
+        public async Task SendMessage()
         {
-            try
+            DateTime dateTime = DateTime.Now.AddDays(1);
+            var clients =  await _scheduleRepository.GetByDateAsync(dateTime);
+            foreach (var client in clients) 
             {
-         
-                var clients = await GetByDateAsync(date);
-              //  clients.ToList().ForEach(i=> sendMessage(i.NameClient, i.CellPhone, i.ScheduleDate)); 
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception();
+                sendMessage(client.NameClient, client.CellPhone, client.ScheduleDate);
             }
         }
 
-        public void sendMessage(string name, string cellphone, string date)
+        public void sendMessage(string name, string cellphone, DateTime date)
         {
             try
             {
                 string accountSid = "ACd62af68b695a818d51690bb768ae22ee";
-                string authToken = "dc958724efbe2e8aade810449a953fab";
+                string authToken = "1881ce8e14e3b583a0e757bd596bff56";
 
                 TwilioClient.Init(accountSid, authToken);
-
-                var messageOptions = new CreateMessageOptions(
-                new PhoneNumber("whatsapp:" + cellphone));
-                messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
-                messageOptions.Body = "Oi " + name + " você tem uma horário marcada para" + date;
-
-                var message = MessageResource.Create(messageOptions);
-                Console.WriteLine(message.Body);
+                var message = MessageResource.Create(
+                          body: "Olá "+ name +" você tem um horário marcardo " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute,
+                          from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
+                          to: new Twilio.Types.PhoneNumber("whatsapp:+55" + cellphone)
+                 );
+                
             }
             catch (Exception e)
             {

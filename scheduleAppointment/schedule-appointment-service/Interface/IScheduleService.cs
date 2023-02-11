@@ -17,6 +17,6 @@ namespace schedule_appointment_service.Interface
         Task<Page<ScheduleListViewModel>> GetAllPageableAsync(ScheduleFindListViewModel schedulePageableRequest);
         Task<IEnumerable<ScheduleResponse>> GetByDateAsync(DateTime date);
         Task<IEnumerable<ScheduleResponse>> GetAllSchedules();
-        Task GetClientsToSendMessageAsync(DateTime date);
+        Task SendMessage(); 
     }
 }

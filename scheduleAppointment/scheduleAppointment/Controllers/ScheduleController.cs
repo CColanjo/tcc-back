@@ -54,5 +54,12 @@ namespace Default.Project.Api.Controllers
         {
             return await _service.GetAllPageableAsync(pageableRequest);
         }
+
+        [HttpPost("schedule/sendMessage")]
+        public async Task SendMessage()
+        {
+            await _service.SendMessage();
+        }
+
     }
 }
