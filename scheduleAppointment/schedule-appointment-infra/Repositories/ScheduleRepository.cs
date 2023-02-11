@@ -76,7 +76,8 @@ namespace schedule_appointment_infra.Repositories
                          ScheduleDate = schedule.ScheduleDate,
                          WillAttend = schedule.WillAttend,
                          NameClient = client.Name,
-                         Id = schedule.Id
+                         Id = schedule.Id,
+                         CellPhone = client.Cellphone
                      }
              ).ToListAsync();
         }
@@ -87,26 +88,6 @@ namespace schedule_appointment_infra.Repositories
             
         }
 
-        public async Task<IEnumerable<SendMessageAutomaticResponse>> GetByDateNowAsync()
-        {
-            return await
-            (
-                 from schedule in _context.Schedule.AsNoTracking()
-                 join client in _context.Client.AsNoTracking()
-                 on schedule.ClientId equals client.Id
-                 where
-                     schedule.ScheduleDate.Year == DateTime.Now.Year &&
-                     schedule.ScheduleDate.Month == DateTime.Now.Month &&
-                     schedule.ScheduleDate.Day == (DateTime.Now.Day+1) &&
-                     schedule.WillAttend == true
-                 orderby schedule.ScheduleDate
-                 select
-                     new SendMessageAutomaticResponse
-                     {
-                         Name = client.Name,    
-                         Cellphone = client.Cellphone,
-                     }
-             ).ToListAsync();
-        }
+         
     }
 }

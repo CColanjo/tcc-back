@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:49913",
+      "sslPort": 44311
+    }
+  },
+  "profiles": {
+    "dart": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "URL_DATABASE": "schedule.c1w1x9gqcee6.us-east-1.rds.amazonaws.com",
+        "USER_DATABASE": "postgres",
+        "DB_PASS": "&T1m%142,",
+        "DB_DATABASE": "schedule"
+      },
+      "applicationUrl": "https://localhost:7226;http://localhost:5226",
+      "dotnetRunMessages": true
+    }
+  }
+}

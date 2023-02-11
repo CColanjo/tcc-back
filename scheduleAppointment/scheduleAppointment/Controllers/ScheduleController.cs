@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;

@@ -38,7 +38,6 @@ namespace schedule_appointment_infra_Ioc.Extensions
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IScheduleService, ScheduleService>();
-            services.AddScoped<ISendMessageAutomaticService, SendMessageAutomaticService>();
             services.AddScoped<IUser, AspNetUser>();
 
             return services;
@@ -130,7 +129,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
             var password_database = Environment.GetEnvironmentVariable("DB_PASS");
 
             string connectionString = string.Empty;
-            connectionString = $"Host=schedule.c1w1x9gqcee6.us-east-1.rds.amazonaws.com;Port=5432;Pooling=true;Database=schedule;UserId=postgres;Password=&T1m%142,;";
+            connectionString = $"Host=awseb-e-wz4ukimmsc-stack-awsebrdsdatabase-aywomfuzgull.corfxopujuzu.us-east-1.rds.amazonaws.com;Port=5432;Pooling=true;Database=postgres;UserId=postgres;Password=&T1m%142;";
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(connectionString,

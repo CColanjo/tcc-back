@@ -12,7 +12,8 @@ namespace schedule_appointment_domain.Model.Response
         public int ClientId { get; set; }
         public DateTime ScheduleDate { get; set; }
         public bool WillAttend { get; set; }
-
         public string NameClient { get; set; }
+        public string CellPhone { get; set; }
+
     }
 }

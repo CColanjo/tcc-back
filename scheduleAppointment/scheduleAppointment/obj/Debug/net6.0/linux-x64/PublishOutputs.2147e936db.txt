@@ -1,3 +1,5 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\Properties\launchSettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\Cyphers\cypher.pem
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\scheduleAppointment
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\appsettings.Development.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\appsettings.json

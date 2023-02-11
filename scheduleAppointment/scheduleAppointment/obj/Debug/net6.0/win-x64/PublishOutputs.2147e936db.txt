@@ -1,6 +1,9 @@
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\Properties\launchSettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\Cyphers\cypher.pem
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\scheduleAppointment.exe
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\appsettings.Development.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\appsettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\aws-beanstalk-tools-defaults.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\scheduleAppointment.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\scheduleAppointment.runtimeconfig.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\publish\scheduleAppointment.pdb

@@ -81,3 +81,6 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\win-x64\scheduleAppointment.pdb
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\win-x64\scheduleAppointment.genruntimeconfig.cache
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Debug\net6.0\win-x64\ref\scheduleAppointment.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\win-x64\aws-beanstalk-tools-defaults.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\win-x64\Properties\launchSettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\win-x64\Cyphers\cypher.pem
