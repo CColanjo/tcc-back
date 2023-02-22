@@ -30,9 +30,9 @@ namespace scheduleAppointment.Controllers
 
         [HttpPut]
         [Route("change-password")]
-        public async Task<string> ChangePassword([FromBody] OAuthResetPasswordConfirmation request)
+        public async Task ChangePassword([FromBody] OAuthResetPasswordConfirmation request)
         {
-            return await _authenticationService.ChangePasswordAsync(request);
+             await _authenticationService.ChangePasswordAsync(request);
         }
     }
 }
