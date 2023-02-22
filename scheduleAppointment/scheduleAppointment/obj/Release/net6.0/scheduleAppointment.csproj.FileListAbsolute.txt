@@ -86,3 +86,8 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\aws-beanstalk-tools-defaults.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\Cyphers\cypher.pem
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Release\net6.0\Properties\launchSettings.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Release\net6.0\staticwebassets\msbuild.scheduleAppointment.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Release\net6.0\staticwebassets\msbuild.build.scheduleAppointment.props
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.scheduleAppointment.props
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.scheduleAppointment.props
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\obj\Release\net6.0\staticwebassets.pack.json

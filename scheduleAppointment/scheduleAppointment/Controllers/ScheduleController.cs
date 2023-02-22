@@ -59,7 +59,7 @@ namespace Default.Project.Api.Controllers
         public async Task SendMessage()
         {
             await _service.SendMessage();
-        }
+         }
 
     }
 }

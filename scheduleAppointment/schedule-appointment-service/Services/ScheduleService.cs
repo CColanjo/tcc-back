@@ -110,7 +110,7 @@ namespace schedule_appointment_service.Services
 
                 TwilioClient.Init(accountSid, authToken);
                 var message = MessageResource.Create(
-                          body: "Olá "+ name +" você tem um horário marcardo " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute,
+                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute,
                           from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
                           to: new Twilio.Types.PhoneNumber("whatsapp:+55" + cellphone)
                  );

@@ -89,7 +89,7 @@ namespace schedule_appointment_service.Services
 
             return new TokenResponse
             {
-                Username = user.Name,
+                Username = user.Username,
                 Token = jwtHandler.WriteToken(securityToken),
                 Created = createdDate,
                 Expires = expirationDate,

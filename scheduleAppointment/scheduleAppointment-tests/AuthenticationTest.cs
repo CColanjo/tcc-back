@@ -61,22 +61,5 @@ namespace scheduleAppointment_tests
             Assert.Equal("teste", result.Username);
 
         }
-
-        public async Task VerifySignInPasswordWrong() 
-        { 
-        
-        
-        }
-
-        public async Task VerifySignInUsernamedWrong()
-        {
-
-
-        }
-
-        public async Task VerifySignInWithoutUsername() 
-        { 
-        
-        }
     }
 }
