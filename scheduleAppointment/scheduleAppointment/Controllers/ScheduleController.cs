@@ -8,6 +8,7 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_service.Interface;
 using scheduleAppointment.Controllers;
+using System.Diagnostics;
 
 namespace Default.Project.Api.Controllers
 { 
@@ -58,10 +59,12 @@ namespace Default.Project.Api.Controllers
         }
 
         [HttpPost("schedule/sendMessage")]
-        public async Task SendMessage()
+        [AllowAnonymous]
+        public IActionResult SendMessage()
         {
-            RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Minutely());
-            //RecurringJob.AddOrUpdate(() =>  _service.SendMessage(), Cron.Daily(9, 0));
+             
+            RecurringJob.AddOrUpdate(() =>  _service.SendMessage(), Cron.Daily(9, 0));
+            return Ok(); 
         }
     }
 }

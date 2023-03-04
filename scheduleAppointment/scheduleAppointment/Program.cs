@@ -73,7 +73,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(_ =>
 #endregion
 builder.Services.AddHangfire(config =>
                  config.UsePostgreSqlStorage($"Host=awseb-e-wz4ukimmsc-stack-awsebrdsdatabase-aywomfuzgull.corfxopujuzu.us-east-1.rds.amazonaws.com;Port=5432;Pooling=true;Database=postgres;UserId=postgres;Password=&T1m%142;"));
-builder.Services.AddHealthChecks();
+ 
 
 #region Injeção das dependências
 InjectorDependency.Injector(builder.Services, builder.Configuration, builder.Environment);
@@ -109,5 +109,4 @@ app.MapControllers();
 
 app.UseHangfireServer();
 app.UseHangfireDashboard();
-
 app.Run();
