@@ -6,16 +6,18 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_service.Localize;
 using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
+using static schedule_appointment_domain.Model.ViewModels.ProfessionalViewModel;
 
 namespace scheduleAppointment.Configuration;
 
 public class AutoMapperConfig : Profile
 {
     public AutoMapperConfig(IStringLocalizer<Resource> localizer)
-    {  
+    {
         CreateMap<User, UserListViewModel>();
         CreateMap<Client, ClientListViewModel>();
         CreateMap<Schedule, ScheduleListViewModel>();
+        CreateMap<Professional, ProfessionalListViewModel>();
         CreateMap<ScheduleResponse, ScheduleListViewModel>();
-    }
+    }  
 }

@@ -1,6 +1,8 @@
 ﻿
+using Hangfire;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Asn1.X500;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
@@ -58,8 +60,8 @@ namespace Default.Project.Api.Controllers
         [HttpPost("schedule/sendMessage")]
         public async Task SendMessage()
         {
-            await _service.SendMessage();
-         }
-
+            RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Minutely());
+            //RecurringJob.AddOrUpdate(() =>  _service.SendMessage(), Cron.Daily(9, 0));
+        }
     }
 }

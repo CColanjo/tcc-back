@@ -4,7 +4,7 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>ifood-sandbox</ActiveDebugProfile>
+    <ActiveDebugProfile>dart</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\Properties\PublishProfiles\testetcccolanjo - Web Deploy1.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

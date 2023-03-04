@@ -10,6 +10,8 @@ using schedule_appointment.Middleware;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
+using Hangfire;
+using Hangfire.PostgreSql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,7 +71,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(_ =>
 }).AddFluentValidation(_ => _.RegisterValidatorsFromAssemblyContaining<Program>());
 
 #endregion
-
+builder.Services.AddHangfire(config =>
+                 config.UsePostgreSqlStorage($"Host=awseb-e-wz4ukimmsc-stack-awsebrdsdatabase-aywomfuzgull.corfxopujuzu.us-east-1.rds.amazonaws.com;Port=5432;Pooling=true;Database=postgres;UserId=postgres;Password=&T1m%142;"));
 builder.Services.AddHealthChecks();
 
 #region Injeção das dependências
@@ -104,6 +107,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
- 
+app.UseHangfireServer();
+app.UseHangfireDashboard();
 
 app.Run();
