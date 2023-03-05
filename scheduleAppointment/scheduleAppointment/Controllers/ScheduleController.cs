@@ -63,8 +63,7 @@ namespace Default.Project.Api.Controllers
         [HttpGet("schedule/sendMessage")]
         public async Task SendMessage()
         {
-          //  RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Daily(10, 0));
-            RecurringJob.AddOrUpdate(() => _service.SendMessage(), "30 12 * * *");
+             RecurringJob.AddOrUpdate(() => _service.SendMessage(), "0 11 * * *", TimeZoneInfo.Local); 
         }
     }
 }
