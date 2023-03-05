@@ -50,20 +50,20 @@
           }
         }
       },
-      "AutoMapper/11.0.0": {
+      "AutoMapper/12.0.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.1/AutoMapper.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.0.0"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
           }
         }
       },
       "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
         "dependencies": {
-          "AutoMapper": "11.0.0",
+          "AutoMapper": "12.0.1",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
@@ -1670,11 +1670,24 @@
       },
       "schedule-appointment-domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Localization.Abstractions": "6.0.7",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "schedule-appointment-domain.dll": {}
+        },
+        "resources": {
+          "en-US/schedule-appointment-domain.resources.dll": {
+            "locale": "en-US"
+          },
+          "es-CO/schedule-appointment-domain.resources.dll": {
+            "locale": "es-CO"
+          },
+          "pt-BR/schedule-appointment-domain.resources.dll": {
+            "locale": "pt-BR"
+          }
         }
       },
       "schedule-appointment-infra/1.0.0": {
@@ -1748,12 +1761,12 @@
       "path": "audit.net/19.2.0",
       "hashPath": "audit.net.19.2.0.nupkg.sha512"
     },
-    "AutoMapper/11.0.0": {
+    "AutoMapper/12.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+596AnKykYCk9RxXCEF4GYuapSebQtFVvIA1oVG1rrRkCLAC7AkWehJ0brCfYUbdDW3v1H/p0W3hob7JoXGjMw==",
-      "path": "automapper/11.0.0",
-      "hashPath": "automapper.11.0.0.nupkg.sha512"
+      "sha512": "sha512-hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "path": "automapper/12.0.1",
+      "hashPath": "automapper.12.0.1.nupkg.sha512"
     },
     "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
       "type": "package",

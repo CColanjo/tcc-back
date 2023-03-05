@@ -59,12 +59,12 @@ namespace Default.Project.Api.Controllers
             return await _service.GetAllPageableAsync(pageableRequest);
         }
 
-        [HttpPost("schedule/sendMessage")]
         [AllowAnonymous]
-        public IActionResult SendMessage()
+        [HttpGet("schedule/sendMessage")]
+        public async Task SendMessage()
         {
-            RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Daily(10, 0));
-            return Ok(); 
+          //  RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Daily(10, 0));
+            RecurringJob.AddOrUpdate(() => _service.SendMessage(), "30 12 * * *");
         }
     }
 }
