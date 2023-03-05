@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HE8odEPNedArnkfEj7DtWEskVRNezYqUYE9favnPwrfVrO77Wx14EwDPit4TygwimRw4+l6J6kH6AIMwUpXMwQ==",
+  "dgSpecHash": "oSEIhZtjo0ATadMKWXPQ6Jpj8I1HWL4AvqGs1J4XisOKskVzoC8O1bWXX8xGXTLO9WfKE3kF092VoONWG+3zmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\scheduleAppointment\\scheduleAppointment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\camil\\.nuget\\packages\\audit.entityframework.core\\19.2.0\\audit.entityframework.core.19.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\audit.net\\19.2.0\\audit.net.19.2.0.nupkg.sha512",
-    "C:\\Users\\camil\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\awssdk.core\\3.7.12.13\\awssdk.core.3.7.12.13.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",

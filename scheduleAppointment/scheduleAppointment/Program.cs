@@ -30,7 +30,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = GlobalizationConstats.supportedCulturesTyped;
 
-    options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+    options.DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR");
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
     options.RequestCultureProviders = new IRequestCultureProvider[] { new schedule_appointment.Extensions.RouteDataRequestCultureProvider { IndexOfCulture = 2 } };
@@ -87,7 +87,7 @@ app.UseMiddleware<RequestSerilLogMiddleware>();
 
 // Configure the HTTP request pipeline.
 
-    app.UseSwagger();
+app.UseSwagger();
 app.UseSwaggerUI();
 
 
