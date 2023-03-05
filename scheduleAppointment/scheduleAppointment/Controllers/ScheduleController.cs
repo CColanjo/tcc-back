@@ -24,6 +24,7 @@ namespace Default.Project.Api.Controllers
         [HttpPost("schedule")]
         public async Task CreateSchedule([FromBody] ScheduleCreateViewModel scheduleCreateViewModel)
         {
+
             await _service.CreateAsync(scheduleCreateViewModel);
         }
 
@@ -62,8 +63,7 @@ namespace Default.Project.Api.Controllers
         [AllowAnonymous]
         public IActionResult SendMessage()
         {
-             
-            RecurringJob.AddOrUpdate(() =>  _service.SendMessage(), Cron.Daily(9, 0));
+            RecurringJob.AddOrUpdate(() => _service.SendMessage(), Cron.Daily(10, 0));
             return Ok(); 
         }
     }
