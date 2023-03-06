@@ -1,17 +1,12 @@
 ﻿
-using AutoMapper;
-using FluentValidation;
-using Microsoft.Extensions.Localization;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Exceptions;
+using schedule_appointment_domain.Helpers;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
-using schedule_appointment_domain.Security;
 using schedule_appointment_service.Interface;
-using schedule_appointment_service.Localize;
-using schedule_appointment_service.Security;
 using System.Net;
 
 namespace schedule_appointment_service.Services
@@ -45,7 +40,7 @@ namespace schedule_appointment_service.Services
             }
             catch (Exception e)
             {
-                throw new Exception();
+               
             }
         }
 
@@ -69,29 +64,34 @@ namespace schedule_appointment_service.Services
             };
 
             await _userRepository.CreateAsync(user);
+            try
+            {
+                await _uow.Commit();
 
-            await _uow.Commit();
-         
-         
+            }
+            catch (Exception e)
+            {
+
+            }
             return user.Id;
         }
 
         public async Task Disable(int id)
         {
+            var user = await _userRepository.GetByIdAsync(id);
+            if (user is null)
+                throw new Exception();
+
+            user.Active = false;
+
             try
             {
-                var user = await _userRepository.GetByIdAsync(id);
-                if (user is null)
-                    throw new Exception();
-
-                user.Active = false;
-
                 _userRepository.Update(user);
                 await _uow.Commit();
             }
             catch (Exception e)
             {
-                throw new Exception();
+                
             }
         }
 
@@ -119,6 +119,7 @@ namespace schedule_appointment_service.Services
                 Active = userUpdateViewModel.Active,
                 Name = userUpdateViewModel.Name,
                 Id = userUpdateViewModel.Id,
+                IsAdmin = userUpdateViewModel.IsAdmin
             };
 
             try
@@ -131,14 +132,14 @@ namespace schedule_appointment_service.Services
                 user.Name = obj.Name;
                 user.Username = obj.Username;
                 user.Active = obj.Active;
-
+                user.IsAdmin = obj.IsAdmin;
                 _userRepository.Update(user);
 
                 await _uow.Commit();
             }
             catch (Exception e)
             {
-                throw new Exception();
+                
             }
         }
 

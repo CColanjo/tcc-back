@@ -50,10 +50,13 @@ namespace schedule_appointment_service.Services
            
             var user = await _userRepository.GetByUsernameAsync(authRequest.Username);
 
-            if (user == null ||  !user.Active)
+            if (user == null)
             {
                 throw new JwtClaimException(_localizer["InvalidUserNameOrPassword"]);
             }
+
+            if (user?.Password != authRequest.Password || !user.Active)
+                throw new JwtClaimException(_localizer["InvalidUserNameOrPassword"]);
 
             return GenerateAuthenticationToken(user);
         }
@@ -130,7 +133,7 @@ namespace schedule_appointment_service.Services
             return jwtHandler.WriteToken(refreshToken);
         }
 
-        public async Task<string> ChangePasswordAsync(OAuthResetPasswordConfirmation request)
+        public async Task ChangePasswordAsync(OAuthResetPasswordConfirmation request)
         {
             var user = await _userRepository.GetByUsernameAsync(request.Username);
 
@@ -145,9 +148,15 @@ namespace schedule_appointment_service.Services
 
             user.Password = request.NewPassword;
 
-            _userRepository.Update(user);
+            try { 
+                 _userRepository.Update(user);
+                await _uow.Commit();
+            }
+            catch (Exception e)
+            {
 
-            return user.Password;
+            }
+         
         }
     }
 }

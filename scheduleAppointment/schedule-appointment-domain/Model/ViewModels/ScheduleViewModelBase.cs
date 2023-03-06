@@ -12,6 +12,7 @@ namespace schedule_appointment_domain.Model.ViewModels
         public int ClientId { get; set; }
         public DateTime ScheduleDate { get; set; }
         public bool WillAttend { get; set; }
+        public int ProfessionalId { get; set; }
     }
     public record ScheduleCreateViewModel : ScheduleViewModelBase
     {
@@ -35,6 +36,7 @@ namespace schedule_appointment_domain.Model.ViewModels
         public int Id { get; init; } = default!;
         public string NameClient { get; init; } = default!;
 
+        public string NameProfessional{ get; init; } = default!;
     }
 
     public class ScheduleFindListViewModel : Pageable

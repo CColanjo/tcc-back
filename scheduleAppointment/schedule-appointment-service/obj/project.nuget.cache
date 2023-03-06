@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4wDgYlo6fSAAnaoI6YBbeK/JjVzlKD7dfW3gjOTB/z0wXNbSqs2gZgQ0x0bSzCqR1fT8ZZhpQUYnLAHSIAiCYg==",
+  "dgSpecHash": "zQtTbjzxLfr4kI1qA840MufW1zGtXhChJLT+Rdsa2AGiU3A5yw5Xo2OEMuubWjJplUySiMlbb61HMxHGsAVgQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\schedule-appointment-service\\schedule-appointment-service.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\camil\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\awssdk.core\\3.7.12.13\\awssdk.core.3.7.12.13.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",

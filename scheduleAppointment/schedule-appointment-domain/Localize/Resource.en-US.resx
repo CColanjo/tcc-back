@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CurrentPasswordDoesNotMatch" xml:space="preserve">
+    <value>The password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="EmailContentEmpty" xml:space="preserve">
+    <value>Email content empty.</value>
+  </data>
+  <data name="EmailTemplateNotFound" xml:space="preserve">
+    <value>Email template not found.</value>
+  </data>
+  <data name="InvalidUserNameOrPassword" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="PasswordsAreNotTheSame" xml:space="preserve">
+    <value>Passwords are not the same.</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found.</value>
+  </data>
+  <data name="CostCenterNotFound" xml:space="preserve">
+    <value>Cost Center not found.</value>
+  </data>
+  <data name="ClaimNotFound" xml:space="preserve">
+    <value>Claim not found.</value>
+  </data>
+  <data name="GroupAlreadyRegistered" xml:space="preserve">
+    <value>A group with that name already exists.</value>
+  </data>
+  <data name="YouMustProvideLeastOnePermission" xml:space="preserve">
+    <value>At least one Permission must be provided.</value>
+  </data>
+  <data name="UserAlreadyRegistered" xml:space="preserve">
+    <value>There is already a user with this registered email.</value>
+  </data>
+  <data name="EmailIsMandatory" xml:space="preserve">
+    <value>Email is mandatory.</value>
+  </data>
+  <data name="MandatoryOneGroup" xml:space="preserve">
+    <value>Mandatory to inform at least one group.</value>
+  </data>
+  <data name="UsernameIsMandatory" xml:space="preserve">
+    <value>Username is mandatory.</value>
+  </data>
+  <data name="CostCenterAlreadyRegistered" xml:space="preserve">
+    <value>A Cost Center with that name already exists.</value>
+  </data>
+  <data name="ClaimAlreadyRegistered" xml:space="preserve">
+    <value>A claim with that name already exists.</value>
+  </data>
+  <data name="ApproverNotFound" xml:space="preserve">
+    <value>Approver not found.</value>
+  </data>
+  <data name="ClaimNameIsMandatory" xml:space="preserve">
+    <value>Permission name is required.</value>
+  </data>
+  <data name="CostCenterNameIsMandatory" xml:space="preserve">
+    <value>The Cost Center name is required.</value>
+  </data>
+  <data name="RoleNameIsMandatory" xml:space="preserve">
+    <value>Role name is required.</value>
+  </data>
+  <data name="CostCenterMustBeInformed" xml:space="preserve">
+    <value>The Cost Center must be informed.</value>
+  </data>
+  <data name="ApproverMustBeInformed" xml:space="preserve">
+    <value>The approver must be informed.</value>
+  </data>
+  <data name="RequestTypeMustBeInformed" xml:space="preserve">
+    <value>The request type must be informed.</value>
+  </data>
+  <data name="BirthDateMustBeInformed" xml:space="preserve">
+    <value>The birth date must be informed.</value>
+  </data>
+  <data name="DocumentNumberMustBeInformed" xml:space="preserve">
+    <value>The document number must be informed.</value>
+  </data>
+  <data name="OriginCityMustBeInformed" xml:space="preserve">
+    <value>The origin city must be informed.</value>
+  </data>
+  <data name="DestinationCityMustBeInformed" xml:space="preserve">
+    <value>The destination city must be informed.</value>
+  </data>
+  <data name="DepartureMustBeInformed" xml:space="preserve">
+    <value>The departure date / time must be informed.</value>
+  </data>
+  <data name="LandmarkMustBeInformed" xml:space="preserve">
+    <value>A landmark must be informed.</value>
+  </data>
+  <data name="TripReasonMustBeInformed" xml:space="preserve">
+    <value>The trip reason must be informed.</value>
+  </data>
+  <data name="HealthInsuranceAlreadyRegistered" xml:space="preserve">
+    <value>A Health Insurance with that name already exists.</value>
+  </data>
+  <data name="HealthInsuranceNameIsMandatory" xml:space="preserve">
+    <value>The Health Insurance name is required.</value>
+  </data>
+  <data name="HealthInsuranceNotFound" xml:space="preserve">
+    <value>Health Insurance not found.</value>
+  </data>
+  <data name="CityAlreadyRegistered" xml:space="preserve">
+    <value>A City with that name already exists.</value>
+  </data>
+  <data name="CityNameIsMandatory" xml:space="preserve">
+    <value>The City name is required.</value>
+  </data>
+  <data name="CityNotFound" xml:space="preserve">
+    <value>City not found.</value>
+  </data>
+  <data name="CountryAlreadyRegistered" xml:space="preserve">
+    <value>A Country with that name already exists.</value>
+  </data>
+  <data name="CountryNameIsMandatory" xml:space="preserve">
+    <value>The Country name is required.</value>
+  </data>
+  <data name="CountryNotFound" xml:space="preserve">
+    <value>Country not found.</value>
+  </data>
+  <data name="SupplierNameIsMandatory" xml:space="preserve">
+    <value>Supplier name is required.</value>
+  </data>
+  <data name="SupplierAlreadyRegistered" xml:space="preserve">
+    <value>A supplier with that name already exists.</value>
+  </data>
+  <data name="BudgetValueMustBeInformed" xml:space="preserve">
+    <value>The budget value must be informed.</value>
+  </data>
+  <data name="CurrencyNameIsMandatory" xml:space="preserve">
+    <value>The currency name is required.</value>
+  </data>
+  <data name="CurrencyAlreadyRegistered" xml:space="preserve">
+    <value>A currency with that name already exists.</value>
+  </data>
+  <data name="CurrencyNotFound" xml:space="preserve">
+    <value>Currency not found.</value>
+  </data>
+  <data name="ServiceDescriptionMustBeInformed" xml:space="preserve">
+    <value>The service description must be informed.</value>
+  </data>
+  <data name="SupplierUserNotLinked" xml:space="preserve">
+    <value>The provider does not have a linked user.</value>
+  </data>
+  <data name="SupplierAttachmentCanNotBeAdded" xml:space="preserve">
+    <value>It is not possible to add a new file that is of the same type as a previously added active file.</value>
+  </data>
+  <data name="RequestStatusMustBeInformed" xml:space="preserve">
+    <value>The new request status must be informed.</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access denied.</value>
+  </data>
+  <data name="WriteUser" xml:space="preserve">
+    <value>WriteUser</value>
+  </data>
+  <data name="ReadUser" xml:space="preserve">
+    <value>ReadUser</value>
+  </data>
+  <data name="WriteCostCenter" xml:space="preserve">
+    <value>WriteCostCenter</value>
+  </data>
+  <data name="ReadCostCenter" xml:space="preserve">
+    <value>ReadCostCenter</value>
+  </data>
+  <data name="WriteRequest" xml:space="preserve">
+    <value>WriteRequest</value>
+  </data>
+  <data name="ReadRequest" xml:space="preserve">
+    <value>ReadRequest</value>
+  </data>
+  <data name="WriteCity" xml:space="preserve">
+    <value>WriteCity</value>
+  </data>
+  <data name="ReadCity" xml:space="preserve">
+    <value>ReadCity</value>
+  </data>
+  <data name="WriteCountry" xml:space="preserve">
+    <value>WriteCountry</value>
+  </data>
+  <data name="ReadCountry" xml:space="preserve">
+    <value>ReadCountry</value>
+  </data>
+  <data name="ReadHealthInsurance" xml:space="preserve">
+    <value>ReadHealthInsurance</value>
+  </data>
+  <data name="WriteHealthInsurance" xml:space="preserve">
+    <value>WriteHealthInsurance</value>
+  </data>
+  <data name="WriteCurrency" xml:space="preserve">
+    <value>WriteCurrency</value>
+  </data>
+  <data name="ReadCurrency" xml:space="preserve">
+    <value>ReadCurrency</value>
+  </data>
+  <data name="WriteSupplier" xml:space="preserve">
+    <value>WriteSupplier</value>
+  </data>
+  <data name="ReadSupplier" xml:space="preserve">
+    <value>ReadSupplier</value>
+  </data>
+  <data name="WriteRole" xml:space="preserve">
+    <value>WriteRole</value>
+  </data>
+  <data name="ReadRole" xml:space="preserve">
+    <value>ReadRole</value>
+  </data>
+  <data name="WriteClaim" xml:space="preserve">
+    <value>WriteClaim</value>
+  </data>
+  <data name="ReadClaim" xml:space="preserve">
+    <value>ReadClaim</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>CancelRequest</value>
+  </data>
+  <data name="ManageRequest" xml:space="preserve">
+    <value>ManageRequest</value>
+  </data>
+  <data name="AwaitingAttachments" xml:space="preserve">
+    <value>AwaitingAttachments</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="InReview" xml:space="preserve">
+    <value>InReview</value>
+  </data>
+  <data name="AwaitingApproval" xml:space="preserve">
+    <value>AwaitingApproval</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="AwaitingManagerApproval" xml:space="preserve">
+    <value>AwaitingManagerApproval</value>
+  </data>
+  <data name="Disapproved" xml:space="preserve">
+    <value>Disapproved</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="AwaitingPayment" xml:space="preserve">
+    <value>AwaitingPayment</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="Concluded" xml:space="preserve">
+    <value>Concluded</value>
+  </data>
+  <data name="PendingReview" xml:space="preserve">
+    <value>PendingReview</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Reviewed</value>
+  </data>
+  <data name="InConclusion" xml:space="preserve">
+    <value>InConclusion</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="RequestCanNotBeUpdated" xml:space="preserve">
+    <value>The current status of this request does not allow it to be edited.</value>
+  </data>
+  <data name="SupplierApprovalEmailContent" xml:space="preserve">
+    <value>A review of the data registered for the supplier {supplier-name} was carried out.
+&lt;br /&gt;Process status was: {status}.
+&lt;br /&gt;Attached comment: {comment}.</value>
+  </data>
+  <data name="PortalName" xml:space="preserve">
+    <value>Supplier Portal</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="SupplierCanNotBeUpdated" xml:space="preserve">
+    <value>This supplier cannot be edited at this time as it has a pending review.</value>
+  </data>
+  <data name="RequestNotFound" xml:space="preserve">
+    <value>Request not found.</value>
+  </data>
+  <data name="NoSelectedSupplierFound" xml:space="preserve">
+    <value>No selected supplier found.</value>
+  </data>
+  <data name="SupplierNotRegistered" xml:space="preserve">
+    <value>Supplier not registered.</value>
+  </data>
+  <data name="RequestNotInExpectedStatus" xml:space="preserve">
+    <value>Request is not in expected status.</value>
+  </data>
+  <data name="CostCenterBudgetAmountIsMandatory" xml:space="preserve">
+    <value>Amount is mandatory.</value>
+  </data>
+  <data name="CostCenterBudgetIdCostCenterNotFound" xml:space="preserve">
+    <value>IdCostCenter Not Found.</value>
+  </data>
+  <data name="CostCenterBudgetIdUserNotFound" xml:space="preserve">
+    <value>IdUser Not Found.</value>
+  </data>
+  <data name="CostCenterBudgetMonthReferenceIsMandatory" xml:space="preserve">
+    <value>Month Reference is mandatory.</value>
+  </data>
+  <data name="SupplierNotFound" xml:space="preserve">
+    <value>Supplier not found</value>
+  </data>
+  <data name="ErrorAttachmentUpdate" xml:space="preserve">
+    <value>Attachment update error</value>
+  </data>
+  <data name="SupplierApprovalEmailSubject_Approved" xml:space="preserve">
+    <value>Approval of supplier registration</value>
+  </data>
+  <data name="SupplierApprovalEmailSubject_Rejected" xml:space="preserve">
+    <value>Disapproval of supplier registration</value>
+  </data>
+  <data name="NotApprovalAvailability" xml:space="preserve">
+    <value>does not meet the permissions for approving the request.</value>
+  </data>
+  <data name="ApprovalRequestRequesterEmailContent" xml:space="preserve">
+    <value>The request {Request-Integration-Code} was approved. We send the Purchase Order to the provider for execution.
+When finished we will send you a new email.</value>
+  </data>
+  <data name="ApprovalRequestSupplierEmailContent" xml:space="preserve">
+    <value>You have been selected and approved for an request.
+Attached is the purchase order.</value>
+  </data>
+  <data name="AwaitingApprovalEmailSubject" xml:space="preserve">
+    <value>Awaiting Approval of Request</value>
+  </data>
+  <data name="AwaitingApprovalRequestEmailContent" xml:space="preserve">
+    <value>The request has been {{status}}.</value>
+  </data>
+  <data name="ApprovalRequestEmailSubject" xml:space="preserve">
+    <value>Request approval.</value>
+  </data>
+  <data name="DisapprovalRequestRequesterEmailContent" xml:space="preserve">
+    <value>The request {Request-Integration-Code} was repproved. Below is the approver's comment.
+Comment: {Comment}
+Approver: {User-Name-Approver}</value>
+  </data>
+  <data name="NoSsupplierChosen" xml:space="preserve">
+    <value>No supplier chosen</value>
+  </data>
+  <data name="RecordNotFoundForTheGivenCode" xml:space="preserve">
+    <value>Record not found for the given code.</value>
+  </data>
+  <data name="InvalidOrMissingCode" xml:space="preserve">
+    <value>Invalid or missing code.</value>
+  </data>
+  <data name="SupplierAlreadyRegisteredForTheGivenCode" xml:space="preserve">
+    <value>Supplier already registered for the given code</value>
+  </data>
+  <data name="TemplateEmailExternalSupplierRegistrationSuccessful" xml:space="preserve">
+    <value>ifood-proveedor-portal-supplier-registration-success-es-co</value>
+  </data>
+  <data name="TemplateEmailNewUser" xml:space="preserve">
+    <value>ifood-proveedor-portal-new-user-es-co</value>
+  </data>
+  <data name="TemplateEmailRequestStatusApproved" xml:space="preserve">
+    <value>ifood-proveedor-portal-request-status-approved-es-co</value>
+  </data>
+  <data name="TemplateEmailRequestStatusApprovedSupplier" xml:space="preserve">
+    <value>ifood-proveedor-portal-request-status-approved-supplier-es-co</value>
+  </data>
+  <data name="TemplateEmailRequestStatusAwaitingApproval" xml:space="preserve">
+    <value>ifood-proveedor-portal-request-status-awaiting-approval-es-co</value>
+  </data>
+  <data name="TemplateEmailRequestStatusRepproved" xml:space="preserve">
+    <value>ifood-proveedor-portal-request-status-repproved-es-co</value>
+  </data>
+  <data name="TemplateEmailSupplierSelectedWithoutRegistration" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateEmailSupplierApproval" xml:space="preserve">
+    <value>ifood-proveedor-portal-supplier-approval-es-co</value>
+  </data>
+  <data name="InvoiceNotFound" xml:space="preserve">
+    <value>Invoice not found</value>
+  </data>
+  <data name="RetentionNotFound" xml:space="preserve">
+    <value>There is no retention information for the selected month.</value>
+  </data>
+  <data name="AccountStatusNotFound" xml:space="preserve">
+    <value>No values ​​available</value>
+  </data>
+  <data name="PDFPage" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PDFpurchaseOrder" xml:space="preserve">
+    <value>Purchase Order</value>
+  </data>
+  <data name="RequestManagementSupplierAttachmentNotFound" xml:space="preserve">
+    <value>Request management attachment not found.</value>
+  </data>
+  <data name="Envelope" xml:space="preserve">
+    <value>Envelope</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Acquisition" xml:space="preserve">
+    <value>Acquisition</value>
+  </data>
+  <data name="Dispatch" xml:space="preserve">
+    <value>Dispatch</value>
+  </data>
+  <data name="Trip" xml:space="preserve">
+    <value>Trip</value>
+  </data>
+  <data name="InvoiceAlreadRegisteredForThisRequest" xml:space="preserve">
+    <value>Invoice already registered for this request.</value>
+  </data>
+  <data name="InvoiceTypeIsMandatory" xml:space="preserve">
+    <value>Invoice Type Is Mandatory.</value>
+  </data>
+  <data name="DefaultSystemLog" xml:space="preserve">
+    <value>(Log entered by the system)</value>
+  </data>
+  <data name="RequestInvoicePaid" xml:space="preserve">
+    <value>Payment of the request invoice executed.</value>
+  </data>
+  <data name="GenerateRetentionFile" xml:space="preserve">
+    <value>GenerateRetentionFile</value>
+  </data>
+  <data name="GeneratePaymentReceipt" xml:space="preserve">
+    <value>GeneratePaymentReceipt</value>
+  </data>
+  <data name="InvoiceIncorrectStatus" xml:space="preserve">
+    <value>Invoice with Incorrect Status</value>
+  </data>
+  <data name="InvoiceAttachmentNotFound" xml:space="preserve">
+    <value>Invoice Attachment not found.</value>
+  </data>
+  <data name="Reproved" xml:space="preserve">
+    <value>Reproved</value>
+  </data>
+  <data name="TotalInvoiceAmountNotEqualReviewItems" xml:space="preserve">
+    <value>The total amount of the invoice is different from the total amount of the review items!</value>
+  </data>
+  <data name="TotalInvoiceNotEqualTotalItems" xml:space="preserve">
+    <value>The total amount of the invoice is different from the total amount of the items.</value>
+  </data>
+  <data name="ApproveInvoice" xml:space="preserve">
+    <value>ApproveInvoice</value>
+  </data>
+  <data name="InvoiceCommentMandatory" xml:space="preserve">
+    <value>Invoice Comment is Required.</value>
+  </data>
+  <data name="TemplateEmailInvoiceApproval" xml:space="preserve">
+    <value>ifood-proveedor-portal-invoice-status-changed-es-co</value>
+  </data>
+  <data name="InvoiceReportTitle" xml:space="preserve">
+    <value>Invoice Report</value>
+  </data>
+  <data name="TemplateEmailFile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SupplierReportTitle" xml:space="preserve">
+    <value>Supplier Report</value>
+  </data>
+  <data name="RequestReportTitle" xml:space="preserve">
+    <value>Request Report</value>
+  </data>
+  <data name="TemplateEmailRequestStatusConcluded" xml:space="preserve">
+    <value>ifood-proveedor-portal-request-status-concluded-es-co</value>
+  </data>
+  <data name="InvalidStatus" xml:space="preserve">
+    <value>Completion not allowed due to current request status</value>
+  </data>
+  <data name="CommentNotFound" xml:space="preserve">
+    <value>Comment Not Found</value>
+  </data>
+  <data name="CommentMustBeInformed" xml:space="preserve">
+    <value>The comment must be informed</value>
+  </data>
+</root>

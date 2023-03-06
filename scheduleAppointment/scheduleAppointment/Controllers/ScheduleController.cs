@@ -63,7 +63,14 @@ namespace Default.Project.Api.Controllers
         [HttpGet("schedule/sendMessage")]
         public async Task SendMessage()
         {
-             RecurringJob.AddOrUpdate(() => _service.SendMessage(), "0 11 * * *", TimeZoneInfo.Local); 
+             RecurringJob.AddOrUpdate(() => _service.SendMessage(), "0 10 * * *", TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time")); 
+        }
+
+        [AllowAnonymous]
+        [HttpGet("schedule/teste")]
+        public async Task<TimeZoneInfo> Teste()
+        {
+            return TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
         }
     }
 }

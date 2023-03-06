@@ -22,3 +22,14 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-ap
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\refint\schedule-appointment-domain.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\schedule-appointment-domain.pdb
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\ref\schedule-appointment-domain.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Debug\net6.0\en-US\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Debug\net6.0\es-CO\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Debug\net6.0\pt-BR\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\schedule-appointment-domain.csproj.GenerateResource.cache
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\en-US\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\es-CO\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\pt-BR\schedule-appointment-domain.resources.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\schedule_appointment_domain.Localize.Resource.en-US.resources
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\schedule_appointment_domain.Localize.Resource.es-CO.resources
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\obj\Debug\net6.0\schedule_appointment_domain.Localize.Resource.pt-BR.resources
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\schedule-appointment-domain\bin\Debug\net6.0\Localize\Resource.cs

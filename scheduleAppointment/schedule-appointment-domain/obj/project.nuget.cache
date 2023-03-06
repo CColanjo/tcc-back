@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "GnNB1ZTD5CpTo9PGdL9k1tQGOoSSzCrdSm4n3wTMyuxQRdLZe8UTA99ZxgQEK9elfkH4/xS3KZ2V5LN7QqmsJw==",
+  "dgSpecHash": "T4/D4YOnmusE5kmXhvZFse/WVo5gpgEc/NunvTdVKoMeQWNW2H3XDy0cOu8bKQO1Uf3LEoFgVb+K9dVnzom7UQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\schedule-appointment-domain\\schedule-appointment-domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\camil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\6.0.7\\microsoft.extensions.localization.abstractions.6.0.7.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

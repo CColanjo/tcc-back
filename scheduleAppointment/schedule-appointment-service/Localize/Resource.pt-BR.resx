@@ -127,7 +127,7 @@
     <value>Modelo de e-mail não encontrado.</value>
   </data>
   <data name="InvalidUserNameOrPassword" xml:space="preserve">
-    <value>E-mail ou senha incorretos.</value>
+    <value>Usuário ou senha incorretos.</value>
   </data>
   <data name="PasswordsAreNotTheSame" xml:space="preserve">
     <value>Senhas não são as mesmas.</value>

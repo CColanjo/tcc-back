@@ -89,28 +89,27 @@ namespace schedule_appointment_service.Services
                 Id = clientUpdateViewModel.Id,
             };
 
+            var client = await _clientRepository.GetByIdAsync(obj.Id);
+            if (client is null)
+                throw new Exception();
+
+            client.Name = obj.Name;
+            client.Cellphone = obj.Cellphone;
+            client.Email = obj.Email;
+            client.Address = obj.Address;
+
             try
-            {
-
-                var client = await _clientRepository.GetByIdAsync(obj.Id);
-                if (client is null)
-                    throw new Exception();
-
-                client.Name = obj.Name;
-                client.Cellphone = obj.Cellphone;
-                client.Email = obj.Email;
-                client.Address = obj.Address;
-
+            {   
                 _clientRepository.Update(client);
                 await _uow.Commit();
             }
             catch (Exception e)
             {
-                throw new Exception();
+              
             }
         }
 
-         public  async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest)
+        public  async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest)
         {
             var clients = await _clientRepository.GetAllPageableAsync(clientPageableRequest);
             return clients;

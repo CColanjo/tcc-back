@@ -8,6 +8,6 @@ namespace schedule_appointment_service.Interface
     {
         Task<TokenResponse> AuthenticateAsync(OAuthRequest authRequest);
 
-        Task<string> ChangePasswordAsync(OAuthResetPasswordConfirmation request);
+        Task ChangePasswordAsync(OAuthResetPasswordConfirmation request);
     }
 }

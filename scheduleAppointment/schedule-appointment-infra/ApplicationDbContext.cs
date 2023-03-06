@@ -20,7 +20,7 @@ namespace schedule_appointment_infra
         public DbSet<User> User { get; set; } = default!;
         public DbSet<Client> Client { get; set; } = default!;
         public DbSet<Schedule> Schedule { get; set; } = default!;
-        
+        public DbSet<Professional> Professional { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -15,6 +15,7 @@ namespace schedule_appointment_domain.Repositories
         Task<Schedule?> GetByIdAsync(int id);
         Task<Page<ScheduleListViewModel>> GetAllPageableAsync(ScheduleFindListViewModel schedulePageableRequest);
         Task<IEnumerable<ScheduleResponse>> GetByDateAsync(DateTime scheduleDate);
-        Task<IEnumerable<ScheduleResponse>> GetAllSchedules();
+        Task<IEnumerable<ScheduleResponse>> GetAllSchedules(); 
+    
     }
 }

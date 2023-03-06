@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LP5d/uPG5rKlE+zVEjdep1lQG4crSSMC6frP4jhze2BXGiE3MUySW05PY0o7lq+7M5TpE7d1drR/lmLJh3aWJQ==",
+  "dgSpecHash": "sgQiEgb6jVj4tatjTMSzlSqiID82eLUys3JrskzFHkzr2T9NtFqkaAKLJHMfNhgSWdCX8oSb5vJSrY1dE4I0/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\schedule-appointment-infra\\schedule-appointment-infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\camil\\.nuget\\packages\\audit.entityframework.core\\19.2.0\\audit.entityframework.core.19.2.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\audit.net\\19.2.0\\audit.net.19.2.0.nupkg.sha512",
-    "C:\\Users\\camil\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
@@ -25,6 +25,7 @@
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\6.0.7\\microsoft.extensions.localization.abstractions.6.0.7.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",

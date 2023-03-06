@@ -12,6 +12,6 @@ namespace schedule_appointment_domain.Model.Entities
         public int ClientId { get; set; }
         public DateTime ScheduleDate { get; set; }
         public bool WillAttend { get; set; }
-         
+        public int ProfessionalId { get; set; }
     }
 }

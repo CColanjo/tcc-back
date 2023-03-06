@@ -1,4 +1,8 @@
-﻿using schedule_appointment_domain;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using schedule_appointment_domain;
+using schedule_appointment_domain.Helpers;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
@@ -7,6 +11,7 @@ using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,36 +33,43 @@ namespace schedule_appointment_service.Services
 
         public async Task<int> CreateAsync(ScheduleCreateViewModel scheduleCreateViewModel)
         {
+             
             var schedule = new Schedule
             {
-                ScheduleDate = scheduleCreateViewModel.ScheduleDate,
+                ScheduleDate = scheduleCreateViewModel.ScheduleDate.AddHours(3),
                 WillAttend = true,
                 ClientId = scheduleCreateViewModel.ClientId,
                 CreationDate = DateTime.UtcNow,
-
+                ProfessionalId = scheduleCreateViewModel.ProfessionalId
             };
 
-            await _scheduleRepository.CreateAsync(schedule);
-            await _uow.Commit();
+            try {
+                await _scheduleRepository.CreateAsync(schedule);
+                await _uow.Commit();
+            }
+            catch (Exception e){
+             
+            } 
             return schedule.Id;
         }
 
         public async Task Disable(int id)
         {
+
+            var schedule = await _scheduleRepository.GetByIdAsync(id);
+            if (schedule is null)
+                throw new Exception();
+
+            schedule.WillAttend = false;
+
             try
             {
-                var schedule = await _scheduleRepository.GetByIdAsync(id);
-                if (schedule is null)
-                    throw new Exception();
-
-                schedule.WillAttend = false;
-
                 _scheduleRepository.Update(schedule);
                 await _uow.Commit();
             }
             catch (Exception e)
             {
-                throw new Exception();
+               
             }
         }
 
@@ -80,7 +92,8 @@ namespace schedule_appointment_service.Services
                 Id = schedule.Id,
                 ClientId = schedule.ClientId,
                 WillAttend = schedule.WillAttend,
-                ScheduleDate = schedule.ScheduleDate
+                ScheduleDate = schedule.ScheduleDate,
+                ProfessionalId = schedule.ProfessionalId,
             };
 
             return obj;
@@ -92,16 +105,20 @@ namespace schedule_appointment_service.Services
             return schedules;
         }
         public async Task SendMessage()
-        {
+        {   
             DateTime dateTime = DateTime.Now.AddDays(1);
-            var clients =  await _scheduleRepository.GetByDateAsync(dateTime);
-            foreach (var client in clients) 
-            {
-                sendMessage(client.NameClient, client.CellPhone, client.ScheduleDate);
-            }
+            var clients = await _scheduleRepository.GetByDateAsync(dateTime);
+            Console.WriteLine("Aqui1");
+            //if (!clients.IsNullOrEmpty())
+            //{
+            //    foreach (var client in clients)
+            //   {
+            //       SendMessageTwillio(client.NameClient, client.CellPhone, client.ScheduleDate, client.NameProfessional);
+            //    }
+            //} 
         }
 
-        public void sendMessage(string name, string cellphone, DateTime date)
+        public void SendMessageTwillio(string name, string cellphone, DateTime date, string professionalName)
         {
             try
             {
@@ -110,7 +127,7 @@ namespace schedule_appointment_service.Services
 
                 TwilioClient.Init(accountSid, authToken);
                 var message = MessageResource.Create(
-                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute,
+                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute + " com " + professionalName,
                           from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
                           to: new Twilio.Types.PhoneNumber("whatsapp:+55" + cellphone)
                  );

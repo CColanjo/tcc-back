@@ -23,7 +23,7 @@ namespace schedule_appointment_infra.Repositories
             _mapper = mapper;
         }
 
-        public async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientViewModel.ClientFindListViewModel userPageableRequest)
+        public async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel userPageableRequest)
         {
             return await _context.Client.AsNoTracking().PageAsync<Client, ClientListViewModel>(userPageableRequest, _mapper);
         }
