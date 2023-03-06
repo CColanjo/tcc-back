@@ -108,14 +108,14 @@ namespace schedule_appointment_service.Services
         {   
             DateTime dateTime = DateTime.Now.AddDays(1);
             var clients = await _scheduleRepository.GetByDateAsync(dateTime);
-            Console.WriteLine("Aqui1");
-            //if (!clients.IsNullOrEmpty())
-            //{
-            //    foreach (var client in clients)
-            //   {
-            //       SendMessageTwillio(client.NameClient, client.CellPhone, client.ScheduleDate, client.NameProfessional);
-            //    }
-            //} 
+           
+            if (!clients.IsNullOrEmpty())
+            {
+                foreach (var client in clients)
+                {
+                   SendMessageTwillio(client.NameClient, client.CellPhone, client.ScheduleDate.AddHours(-3), client.NameProfessional);
+                }
+            } 
         }
 
         public void SendMessageTwillio(string name, string cellphone, DateTime date, string professionalName)
@@ -127,15 +127,14 @@ namespace schedule_appointment_service.Services
 
                 TwilioClient.Init(accountSid, authToken);
                 var message = MessageResource.Create(
-                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute + " com " + professionalName,
+                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute + " com " + professionalName+" Envie sim, caso for comparecer",
                           from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
                           to: new Twilio.Types.PhoneNumber("whatsapp:+55" + cellphone)
                  );
-                
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                throw new Exception(e.Message,e);
             }
         }
     }
