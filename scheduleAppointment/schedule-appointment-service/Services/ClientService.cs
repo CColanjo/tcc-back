@@ -77,7 +77,7 @@ namespace schedule_appointment_service.Services
             return await _clientRepository.GetClients();
         }
 
-        public async Task Update(ClientViewModel.ClientUpdateViewModel clientUpdateViewModel)
+        public async Task<int> Update(ClientUpdateViewModel clientUpdateViewModel)
         {
             var obj = new Client
             {
@@ -106,6 +106,8 @@ namespace schedule_appointment_service.Services
             {
               
             }
+
+            return obj.Id;
         }
 
         public  async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest)

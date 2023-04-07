@@ -11,6 +11,7 @@ using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
 using scheduleAppointment_tests.Factories;
 using AutoFixture;
 using schedule_appointment_domain.Model.Entities;
+using NSubstitute;
 
 namespace scheduleAppointment_tests.Services
 {
@@ -33,6 +34,25 @@ namespace scheduleAppointment_tests.Services
 
             var response = await service.GetClients();
             Assert.IsType<List<Client>>(response);
+        }
+
+        [Fact]
+        public async Task Client_CreateClient_Success() {
+            var fixtureClientCreateViewModel = _fixture.Create<ClientCreateViewModel>();
+            var service = _factory.CreateService();
+
+            var response = await service.CreateAsync(fixtureClientCreateViewModel);
+            Assert.IsType<int>(response);
+        }
+
+        [Fact]
+        public async Task Client_Update_Success() {
+            var fixtureClientUpdateViewModel = _fixture.Create<ClientUpdateViewModel>();
+            var fixtureClient = _fixture.Create<Client>();
+            var service = _factory.GetByIdAsync(fixtureClient).CreateService();
+
+            var response = await service.Update(fixtureClientUpdateViewModel);
+            Assert.IsType<int>(response);
         }
     }
 }
