@@ -12,6 +12,7 @@ using scheduleAppointment_tests.Factories;
 using AutoFixture;
 using schedule_appointment_domain.Model.Entities;
 using NSubstitute;
+using schedule_appointment_domain.Model.Pagination;
 
 namespace scheduleAppointment_tests.Services
 {
@@ -54,5 +55,24 @@ namespace scheduleAppointment_tests.Services
             var response = await service.Update(fixtureClientUpdateViewModel);
             Assert.IsType<int>(response);
         }
+
+        [Fact]
+        public async Task Client_GetByIdAsync_Success() {
+            var fixtureClient = _fixture.Create<Client>();
+            var service = _factory.GetByIdAsync(fixtureClient).CreateService();
+
+            var response = await service.GetByIdAsync(Arg.Any<int>());
+            Assert.IsType<ClientFindViewModel>(response);
+        }
+
+        [Fact]
+        public async Task Client_GetAllPageableAsync_Success() {
+            var fixtureClientClientListViewModelPage = _fixture.Create<Page<ClientListViewModel>>();
+            var fixtureClientFindListViewModel = _fixture.Create<ClientFindListViewModel>();
+            var service = _factory.GetAllPageableAsync(fixtureClientClientListViewModelPage).CreateService();
+
+            var response = await service.GetAllPageableAsync(fixtureClientFindListViewModel);
+            Assert.IsType<Page<ClientListViewModel>>(response);
+        }  
     }
 }
