@@ -19,9 +19,9 @@ namespace Default.Project.Api.Controllers
 
         [ClaimAuthorize("Admin")]
         [HttpPost("user")]
-        public async Task CreateUser([FromBody] UserCreateViewModel userCreateViewModel)
+        public async Task<string> CreateUser([FromBody] UserCreateViewModel userCreateViewModel)
         {
-            await _userService.CreateAsync(userCreateViewModel);
+          return  await _userService.CreateAsync(userCreateViewModel);
         }
 
         

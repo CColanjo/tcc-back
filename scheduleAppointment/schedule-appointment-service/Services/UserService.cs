@@ -7,6 +7,7 @@ using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Security;
 using System.Net;
 
 namespace schedule_appointment_service.Services
@@ -44,7 +45,7 @@ namespace schedule_appointment_service.Services
             }
         }
 
-        public async Task<int> CreateAsync(UserCreateViewModel userCreateViewModel)
+        public async Task<string> CreateAsync(UserCreateViewModel userCreateViewModel)
         {
 
             var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
@@ -56,7 +57,7 @@ namespace schedule_appointment_service.Services
             var user = new User
             {
                 Username = userCreateViewModel.Username,
-                Password = "1234",
+                Password = PasswordGenerator.GeneratePassword(true, true, true, true, 10),
                 Active = true,
                 CreationDate = DateTime.UtcNow,
                 Name = userCreateViewModel.Name,
@@ -73,7 +74,7 @@ namespace schedule_appointment_service.Services
             {
 
             }
-            return user.Id;
+            return user.Password;
         }
 
         public async Task Disable(int id)
