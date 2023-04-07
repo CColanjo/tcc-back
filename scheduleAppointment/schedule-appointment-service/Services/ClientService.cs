@@ -27,7 +27,6 @@ namespace schedule_appointment_service.Services
 
         }
 
-
         public async Task<int> CreateAsync(ClientViewModel.ClientCreateViewModel clientCreateViewModel)
         {
             var client = new Client

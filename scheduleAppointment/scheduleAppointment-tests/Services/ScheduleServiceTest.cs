@@ -8,25 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace scheduleAppointment_tests.Services {
-    public class ProfessionalServiceTest {
+namespace scheduleAppointment_tests.Services
+{
+    public class ScheduleServiceTest
+    {
 
-        public readonly ProfessionalServiceFactory _factory;
+        public readonly ScheduleServiceFactory _factory;
         public readonly Fixture _fixture;
 
-        public ProfessionalServiceTest() {
-            _factory = new ProfessionalServiceFactory();
+        public ScheduleServiceTest() {
+            _factory = new ScheduleServiceFactory();
             _fixture = new Fixture();
         }
 
         [Fact]
-        public async Task Professional_GetAll_Success() {
-            var fixtureClient = _fixture.Create<List<Professional>>();
+        public async Task Schedule_GetAllSchedule_Success() {
+            var fixtureClient = _fixture.Create<List<Schedule>>();
             var service = _factory.CreateService();
 
-            var response = await service.GetProfessionals();
+            var response = await service.GetAllSchedules();
             Assert.IsType<List<Client>>(response);
-        }
-
+        } 
     }
 }
