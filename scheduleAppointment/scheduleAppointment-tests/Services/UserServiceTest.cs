@@ -10,14 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace scheduleAppointment_tests
+namespace scheduleAppointment_tests.Services
 {
-    public class AuthenticationTest
+    public class UserServiceTest
     {
         Mock<IAuthenticationService> authenticationMock;
 
 
-        public AuthenticationTest() 
+        public UserServiceTest()
         {
             authenticationMock = new Mock<IAuthenticationService>();
         }
@@ -26,7 +26,8 @@ namespace scheduleAppointment_tests
         public async Task VerifySignInSucess()
         {
             OAuthRequest oAuthRequest = new OAuthRequest() { Username = "teste", Password = "1234" };
-            TokenResponse TokenResponse = new TokenResponse { 
+            TokenResponse TokenResponse = new TokenResponse
+            {
                 Username = "teste",
                 Email = "",
                 Token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNhbWlsYSIsInVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2NzQwNjAyNTEsImV4cCI6MTY3NDA4OTA1MSwiaWF0IjoxNjc0MDYwMjUxfQ.V2tPDYEYs14mAqMcYlHxNncB5-mvK6a1xZXN-AYb_UzMpdTtKa_RfdLlpq9jsKz7U7booohBh1AyXAU_GYHBk5qwzZ2fclcU_AtpPclk60ayfMZ0YbFURZFjL3fpjtKZXbBCi5P09sAWH_0WeD-WRu3EiV-cS8rOC4jH9OHd_-9Eq4x-PjsD8xv5zqJs_pbK5-HE8A20w9k_S8l_5FT7xrniFTC6gOHta-6pTVcOKZZnWViv2e_RL5g-Jdc-eSCh_-BL2KNNNgWwokMTG6yGWljg6WTyjcZ3A1YkHniwVTqqOTkkEes_rE7fzGky16liDNszYA4PuIXGNEOENqw1RA",
@@ -50,7 +51,7 @@ namespace scheduleAppointment_tests
         public async Task VerifySignInWithoutPassword()
         {
             OAuthRequest oAuthRequest = new OAuthRequest() { Username = "teste" };
-      
+
 
             AuthenticationController authenticationController = new AuthenticationController(authenticationMock.Object);
 

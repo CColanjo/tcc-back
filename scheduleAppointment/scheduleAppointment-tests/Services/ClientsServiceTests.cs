@@ -9,15 +9,16 @@ using System.Linq;
 using Default.Project.Api.Controllers;
 using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
 
-namespace scheduleAppointment_tests
+namespace scheduleAppointment_tests.Services
 {
-    public class ClientsTests
-    {   Mock<IClientService> clienteMock;
+    public class ClientsServiceTests
+    {
+        Mock<IClientService> clienteMock;
 
-        public ClientsTests() 
+        public ClientsServiceTests()
         {
-            clienteMock = new Mock<IClientService> ();
-           
+            clienteMock = new Mock<IClientService>();
+
         }
 
         [Fact]

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace scheduleAppointment_tests
+namespace scheduleAppointment_tests.Services
 {
-    internal class ScheduleTests
+    internal class ScheduleServiceTests
     {
     }
 }

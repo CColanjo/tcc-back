@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JVnTYmSnIS9NwR60NUpELO11bXQ+ZPhBrMBqwumI5/Dy8ioX6ZwZFdgok3xTOA/xGkY5u/tpKFgHsHlOfcQ9mQ==",
+  "dgSpecHash": "5WXEFfRjHJ6oaxuWJu1MJ2Yy/FMejX8E2/8chkDv+h0gyanqjVTIua3MGzamMK4ZiVW61Jf8VzBsuNcc8RmurQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\scheduleAppointment-tests\\scheduleAppointment-tests.csproj",
   "expectedPackageFiles": [
@@ -89,6 +89,7 @@
     "C:\\Users\\camil\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.5\\npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\nsubstitute\\5.0.0\\nsubstitute.5.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
