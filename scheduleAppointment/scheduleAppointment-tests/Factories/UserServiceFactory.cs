@@ -1,5 +1,8 @@
 ﻿using NSubstitute;
 using schedule_appointment_domain;
+using schedule_appointment_domain.Model.Entities;
+using schedule_appointment_domain.Model.Pagination;
+using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
 using schedule_appointment_service.Services;
@@ -13,8 +16,32 @@ namespace scheduleAppointment_tests.Factories {
     public class UserServiceFactory {
         public readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
         public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
-       
 
+        public UserServiceFactory GetAllAsync(IEnumerable<User> users) {
+            _userRepository.GetAllAsync().Returns(users);
+            return this;
+        }
+        public UserServiceFactory GetUserByUsernameAsync(User user) {
+            _userRepository.GetUserByUsernameAsync(Arg.Any<string>()).Returns(user);
+            return this;
+        }
+        
+
+        public UserServiceFactory GetByIdAsync(User user) {
+            _userRepository.GetByIdAsync(Arg.Any<int>()).Returns(user);
+            return this;
+        }
+
+        public UserServiceFactory GetByUsernameAsync(User user) {
+            _userRepository.GetByUsernameAsync(Arg.Any<string>()).Returns(user);
+            return this;
+        }
+
+        public UserServiceFactory GetAllPageableAsync(Page<UserListViewModel> users) {
+            _userRepository.GetAllPageableAsync(Arg.Any<UserFindListViewModel>()).Returns(users);
+            return this;
+        }
+          
         public UserService CreateService() {
             return new UserService(_userRepository, _uow);
         }
