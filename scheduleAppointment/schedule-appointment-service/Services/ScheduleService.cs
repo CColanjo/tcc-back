@@ -104,6 +104,14 @@ namespace schedule_appointment_service.Services
             var schedules = await _scheduleRepository.GetAllPageableAsync(clientPageableRequest);
             return schedules;
         }
+
+        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel clientPageableRequest) {
+            DateTime dateTime = DateTime.Now;
+            var schedules = await _scheduleRepository.GetAllPageableByDateAsync(clientPageableRequest, dateTime);
+            return schedules;
+        }
+
+
         public async Task SendMessage()
         {   
             DateTime dateTime = DateTime.Now.AddDays(1);

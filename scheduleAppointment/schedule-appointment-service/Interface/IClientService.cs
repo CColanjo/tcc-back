@@ -12,7 +12,6 @@ namespace schedule_appointment_service.Interface
         Task<int> CreateAsync(ClientCreateViewModel clientCreateViewModel);
         Task Update(ClientUpdateViewModel clientUpdateViewModel);
         Task<ClientFindViewModel?> GetByIdAsync(int id);
-
         Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest);
         Task<IEnumerable<ClientResponse>> GetClients();
     }

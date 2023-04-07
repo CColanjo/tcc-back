@@ -113,7 +113,6 @@ namespace schedule_appointment_service.Services
         {
             var clients = await _clientRepository.GetAllPageableAsync(clientPageableRequest);
             return clients;
-
         }
     }
 }

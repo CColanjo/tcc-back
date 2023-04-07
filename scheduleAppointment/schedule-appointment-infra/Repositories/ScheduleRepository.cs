@@ -103,5 +103,34 @@ namespace schedule_appointment_infra.Repositories
         { 
              return await _context.Schedule.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id); 
         }
+
+
+        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel schedulePageableRequest, DateTime scheduleDate) {
+            var query = _context.Schedule
+             .Join(_context.Client,
+                schedule => schedule.ClientId,
+                client => client.Id,
+                (schedule, client) => new { schedule, client })
+             .Join(
+                 _context.Professional,
+                 combinedEntry => combinedEntry.schedule.ProfessionalId,
+                 professional => professional.Id,
+                 (combinedEntry, professional) => new ScheduleResponse {
+                     ClientId = combinedEntry.schedule.ClientId,
+                     ScheduleDate = combinedEntry.schedule.ScheduleDate,
+                     WillAttend = combinedEntry.schedule.WillAttend,
+                     NameClient = combinedEntry.client.Name,
+                     Id = combinedEntry.schedule.Id,
+                     NameProfessional = professional.Name,
+                     ProfessionalId = professional.Id
+                 }
+             )
+             .Where(o => o.WillAttend == true && 
+                        o.ScheduleDate.Year == scheduleDate.Year &&
+                        o.ScheduleDate.Month == scheduleDate.Month &&
+                        o.ScheduleDate.Day == scheduleDate.Day ).OrderBy(o => o.ScheduleDate);
+
+            return await query.PageAsync<ScheduleResponse, ScheduleListViewModel>(schedulePageableRequest, _mapper);
+        }
     }
 }

@@ -54,9 +54,14 @@ namespace Default.Project.Api.Controllers
         }
 
         [HttpGet("schedules/paginated")]
-        public async Task<Page<ScheduleListViewModel>> GetAllUsersPageable([FromQuery] ScheduleFindListViewModel pageableRequest)
+        public async Task<Page<ScheduleListViewModel>> GetAllSchedulesPageable([FromQuery] ScheduleFindListViewModel pageableRequest)
         {
             return await _service.GetAllPageableAsync(pageableRequest);
+        }
+
+        [HttpGet("schedules/paginatedbydate")]
+        public async Task<Page<ScheduleListViewModel>> GetAllSchedulesByDatePageable([FromQuery] ScheduleFindListViewModel pageableRequest) {
+            return await _service.GetAllPageableByDateAsync(pageableRequest);
         }
 
         [AllowAnonymous]
