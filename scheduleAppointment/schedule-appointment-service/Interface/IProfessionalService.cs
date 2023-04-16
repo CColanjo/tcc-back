@@ -14,7 +14,7 @@ namespace schedule_appointment_service.Interface
     public interface IProfessionalService
     {
         Task<int> CreateAsync(ProfessionalCreateViewModel professionalCreateViewModel);
-        Task Update(ProfessionalUpdateViewModel professionalUpdateViewModel);
+        Task<int> Update(ProfessionalUpdateViewModel professionalUpdateViewModel);
         Task<ProfessionalFindViewModel?> GetByIdAsync(int id);
         Task<Page<ProfessionalListViewModel>> GetAllPageableAsync(ProfessionalFindListViewModel professionalPageableRequest);
         Task<IEnumerable<ProfessionalResponse>> GetProfessionals();

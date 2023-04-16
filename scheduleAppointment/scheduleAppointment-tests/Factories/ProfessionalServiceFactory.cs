@@ -30,7 +30,7 @@ namespace scheduleAppointment_tests.Factories {
             return this;
         }
 
-        public ProfessionalServiceFactory GetClients(IEnumerable<ProfessionalResponse> professionals) {
+        public ProfessionalServiceFactory GetProfessionals(IEnumerable<ProfessionalResponse> professionals) {
             _professionalRepository.GetProfessionals().Returns(professionals);
             return this;
 

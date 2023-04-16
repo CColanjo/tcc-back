@@ -53,7 +53,7 @@ namespace schedule_appointment_service.Services
             return schedule.Id;
         }
 
-        public async Task Disable(int id)
+        public async Task<Boolean> Disable(int id)
         {
 
             var schedule = await _scheduleRepository.GetByIdAsync(id);
@@ -66,10 +66,11 @@ namespace schedule_appointment_service.Services
             {
                 _scheduleRepository.Update(schedule);
                 await _uow.Commit();
+                return true;
             }
             catch (Exception e)
             {
-               
+                return false;
             }
         }
 
@@ -105,9 +106,9 @@ namespace schedule_appointment_service.Services
             return schedules;
         }
 
-        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel clientPageableRequest) {
+        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel schedulePageableRequest) {
             DateTime dateTime = DateTime.Now;
-            var schedules = await _scheduleRepository.GetAllPageableByDateAsync(clientPageableRequest, dateTime);
+            var schedules = await _scheduleRepository.GetAllPageableByDateAsync(schedulePageableRequest, dateTime);
             return schedules;
         }
 

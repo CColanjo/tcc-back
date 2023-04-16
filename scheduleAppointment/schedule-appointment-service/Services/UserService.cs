@@ -26,7 +26,7 @@ namespace schedule_appointment_service.Services
             _uow = uow;
         }
 
-        public async Task Active(int id)
+        public async Task<bool> Active(int id)
         {
             try
             {
@@ -38,11 +38,13 @@ namespace schedule_appointment_service.Services
 
                 _userRepository.Update(user);
                 await _uow.Commit();
+                return true;
             }
             catch (Exception e)
             {
                
             }
+            return false;
         }
 
         public async Task<string> CreateAsync(UserCreateViewModel userCreateViewModel)
@@ -77,7 +79,7 @@ namespace schedule_appointment_service.Services
             return user.Password;
         }
 
-        public async Task Disable(int id)
+        public async Task<bool> Disable(int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
             if (user is null)
@@ -89,11 +91,13 @@ namespace schedule_appointment_service.Services
             {
                 _userRepository.Update(user);
                 await _uow.Commit();
+                return true;
             }
             catch (Exception e)
             {
                 
             }
+            return false;
         }
 
         public async Task<UserFindViewModel?> GetByIdAsync(int id)
@@ -112,7 +116,7 @@ namespace schedule_appointment_service.Services
             return obj;
         }
 
-        public async Task Update(UserUpdateViewModel userUpdateViewModel)
+        public async Task<int> Update(UserUpdateViewModel userUpdateViewModel)
         {
             var obj = new User
             {
@@ -142,6 +146,7 @@ namespace schedule_appointment_service.Services
             {
                 
             }
+            return obj.Id;
         }
 
         public async Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest)

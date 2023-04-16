@@ -8,10 +8,10 @@ namespace schedule_appointment_service.Interface
     public interface IUserService
     {
         Task<string> CreateAsync(UserCreateViewModel userCreateViewModel);
-        Task Update(UserUpdateViewModel userUpdateViewModel);
+        Task<int> Update(UserUpdateViewModel userUpdateViewModel);
         Task<UserFindViewModel?> GetByIdAsync(int id);
-        Task Disable(int id);
-        Task Active(int id);
+        Task<bool> Disable(int id);
+        Task<bool> Active(int id);
         Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest);
     }
 }

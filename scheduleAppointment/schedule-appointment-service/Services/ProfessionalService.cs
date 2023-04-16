@@ -67,7 +67,7 @@ namespace schedule_appointment_service.Services
             return await _professionalRepository.GetProfessionals();
         }
 
-        public async Task Update(ProfessionalUpdateViewModel professionalUpdateViewModel)
+        public async Task<int> Update(ProfessionalUpdateViewModel professionalUpdateViewModel)
         {
             var obj = new Professional
             {
@@ -91,6 +91,8 @@ namespace schedule_appointment_service.Services
             {
 
             }
+
+            return obj.Id;
         }
     }
 }
