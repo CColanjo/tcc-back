@@ -44,13 +44,25 @@ namespace scheduleAppointment_tests.Services
         }
 
         [Fact]
-        public async Task Schedule_CreateAsync_Sucess() {
+        public async Task Schedule_CreateAsync_Success() {
 
             var fixtureScheduleCreateViewModel = _fixture.Create<ScheduleCreateViewModel>();
             var service = _factory.CreateService();
 
             var response = await service.CreateAsync(fixtureScheduleCreateViewModel);
             Assert.IsType<int>(response);
+        }
+
+        [Fact]
+        public async Task Schedule_CreateAsync_Error() {
+
+            var fixtureScheduleCreateViewModel = _fixture.Create<ScheduleCreateViewModel>();
+            var service = _factory.CreateService();
+
+            var response = service.CreateAsync(Arg.Any<ScheduleCreateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
         }
 
         [Fact]

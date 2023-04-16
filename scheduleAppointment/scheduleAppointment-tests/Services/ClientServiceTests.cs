@@ -13,6 +13,10 @@ using AutoFixture;
 using schedule_appointment_domain.Model.Entities;
 using NSubstitute;
 using schedule_appointment_domain.Model.Pagination;
+using System;
+using schedule_appointment_domain.Exceptions;
+using Microsoft.Extensions.Localization;
+using schedule_appointment_service.Localize;
 
 namespace scheduleAppointment_tests.Services
 {
@@ -20,32 +24,44 @@ namespace scheduleAppointment_tests.Services
     {
         public readonly ClientServiceFactory _factory;
         public readonly Fixture _fixture;
-
+  
         public ClientServiceTests()
         {
             _factory = new ClientServiceFactory();
-            _fixture = new Fixture();  
+            _fixture = new Fixture();
         }
 
         [Fact]
         public async Task Client_GetAllClients_Success()
         {
-            var fixtureClient = _fixture.Create<List<Client>>();
-            var service = _factory.CreateService();
+            var fixtureClient = _fixture.Create<List<ClientResponse>>();
+            var service = _factory.GetClients(fixtureClient).CreateService();
 
-            var response = await service.GetClients();
-            Assert.IsType<List<Client>>(response);
+            var response =  service.GetClients();
+            Assert.IsType<List<ClientResponse>>(await response);
         }
 
         [Fact]
         public async Task Client_CreateClient_Success() {
             var fixtureClientCreateViewModel = _fixture.Create<ClientCreateViewModel>();
-            var service = _factory.CreateService();
+            var service = _factory.CreateAsync().CreateService();
 
             var response = await service.CreateAsync(fixtureClientCreateViewModel);
             Assert.IsType<int>(response);
         }
 
+        [Fact]
+        public async Task Client_CreateClient_Error() {
+            var fixtureClientCreateViewModel = _fixture.Create<ClientCreateViewModel>();
+            var service = _factory.CreateAsync().CreateService();
+
+
+            var response =  service.CreateAsync(Arg.Any<ClientCreateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() =>  response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message); 
+        }
+        
         [Fact]
         public async Task Client_Update_Success() {
             var fixtureClientUpdateViewModel = _fixture.Create<ClientUpdateViewModel>();
@@ -54,6 +70,18 @@ namespace scheduleAppointment_tests.Services
 
             var response = await service.Update(fixtureClientUpdateViewModel);
             Assert.IsType<int>(response);
+        }
+
+        [Fact]
+        public async Task Client_Update_Error() {
+            var fixtureClientUpdateViewModel = _fixture.Create<ClientUpdateViewModel>();
+            var fixtureClient = _fixture.Create<Client>();
+            var service = _factory.GetByIdAsync(fixtureClient).CreateService();
+
+            var response = service.Update(Arg.Any<ClientUpdateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
         }
 
         [Fact]

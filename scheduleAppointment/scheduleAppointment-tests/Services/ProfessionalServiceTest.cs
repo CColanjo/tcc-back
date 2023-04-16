@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
 using static schedule_appointment_domain.Model.ViewModels.ProfessionalViewModel;
 
 namespace scheduleAppointment_tests.Services {
@@ -52,13 +53,24 @@ namespace scheduleAppointment_tests.Services {
         }
 
         [Fact]
-        public async Task Professional_CreateAsync_Sucess() {
+        public async Task Professional_CreateAsync_Success() {
 
             var fixtureProfessionalFindListViewModel = _fixture.Create<ProfessionalCreateViewModel>();
             var service = _factory.CreateService();
 
             var response = await service.CreateAsync(fixtureProfessionalFindListViewModel);
             Assert.IsType<int>(response);
+        }
+        [Fact]
+        public async Task Professional_CreateAsync_Error() {
+            var fixtureClientCreateViewModel = _fixture.Create<ProfessionalCreateViewModel>();
+            var service = _factory.CreateService();
+
+
+            var response = service.CreateAsync(Arg.Any<ProfessionalCreateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
         }
 
 
@@ -70,6 +82,18 @@ namespace scheduleAppointment_tests.Services {
 
             var response = await service.Update(fixture);
             Assert.IsType<int>(response);
+        }
+
+        [Fact]
+        public async Task Professional_Update_Error() {
+            var fixtureClientCreateViewModel = _fixture.Create<ProfessionalUpdateViewModel>();
+            var service = _factory.CreateService();
+
+
+            var response = service.Update(Arg.Any<ProfessionalUpdateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
         }
 
     }

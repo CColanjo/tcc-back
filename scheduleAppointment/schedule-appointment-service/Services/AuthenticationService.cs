@@ -28,21 +28,18 @@ namespace schedule_appointment_service.Services
         private readonly TokenSettings _setting;
         private readonly JwtCredentialsProvider _jwtCredentialsProvider;
         private readonly IUnitOfWork _uow;
-        private readonly EmailSettings _emailSettings;
-
+        
         public AuthenticationService(IUserRepository userRepository,
             IStringLocalizer<Resource> localizer,
             IOptions<TokenSettings> setting,
             JwtCredentialsProvider jwtCredentialsProvider,
-            IUnitOfWork uow,
-            IOptions<EmailSettings> emailSettings)
+            IUnitOfWork uow )
         {
             _userRepository = userRepository;
             _localizer = localizer;
             _setting = setting.Value;
             _jwtCredentialsProvider = jwtCredentialsProvider;
-            _uow = uow;
-            _emailSettings = emailSettings.Value;
+            _uow = uow; 
         }
 
         public async Task<TokenResponse> AuthenticateAsync(OAuthRequest authRequest)
@@ -146,6 +143,10 @@ namespace schedule_appointment_service.Services
             if (request.OldPassword != user.Password)
                 throw new BusinessException(string.Format(_localizer["CurrentPasswordDoesNotMatch"], request.OldPassword));
 
+            if (!ValidarSenha(request.NewPassword)) {
+                throw new BusinessException(string.Format(_localizer["PasswordWrong"], request.OldPassword));
+            }
+
             user.Password = request.NewPassword;
 
             try { 
@@ -157,6 +158,35 @@ namespace schedule_appointment_service.Services
 
             }
          
+        }
+
+        public bool ValidarSenha(string senha) {
+            // A senha deve ter exatamente 10 caracteres
+            if (senha.Length != 10) {
+                return false;
+            }
+
+            // A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um caractere especial
+            bool contemMaiuscula = false;
+            bool contemMinuscula = false;
+            bool contemEspecial = false;
+            foreach (char c in senha) {
+                if (char.IsUpper(c)) {
+                    contemMaiuscula = true;
+                }
+                else if (char.IsLower(c)) {
+                    contemMinuscula = true;
+                }
+                else if (!char.IsLetterOrDigit(c)) {
+                    contemEspecial = true;
+                }
+            }
+            if (!contemMaiuscula || !contemMinuscula || !contemEspecial) {
+                return false;
+            }
+
+            // Se a senha passou por todas as validações, retorna verdadeiro
+            return true;
         }
     }
 }

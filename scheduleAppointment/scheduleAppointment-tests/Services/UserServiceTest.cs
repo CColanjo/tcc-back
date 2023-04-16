@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using Moq;
 using NSubstitute;
+using schedule_appointment_domain.Exceptions;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Request;
@@ -39,6 +40,30 @@ namespace scheduleAppointment_tests.Services
         }
 
         [Fact]
+        public async Task User_CreateUser_Error() {
+            var fixtureUserCreateViewModel = _fixture.Create<UserCreateViewModel>();
+            var service = _factory.CreateService(); 
+            var response = service.CreateAsync(Arg.Any<UserCreateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
+        }
+
+        [Fact]
+        public async Task User_CreateUser_UserRegistered() {
+            var fixtureUser = _fixture.Create<User>();
+            var fixtureUserCreateViewModel = _fixture.Create<UserCreateViewModel>();
+            var service = _factory.GetByUserNameAsync(fixtureUser).CreateService();
+
+            var response =  service.CreateAsync(fixtureUserCreateViewModel); 
+   
+            var exception = Assert.ThrowsAsync<NotAuthorizedException>(() => response);
+
+            Assert.Equal("Usuário já cadastrado", exception.Result.Message);
+
+        }
+
+        [Fact]
         public async Task User_Update_Success() {
             var fixtureUserUpdateViewModel = _fixture.Create<UserUpdateViewModel>();
             var fixtureUser= _fixture.Create<User>();
@@ -46,6 +71,18 @@ namespace scheduleAppointment_tests.Services
 
             var response = await service.Update(fixtureUserUpdateViewModel);
             Assert.IsType<int>(response);
+        }
+
+        [Fact]
+        public async Task User_Update_Error() {
+            var fixtureUserUpdateViewModel = _fixture.Create<UserUpdateViewModel>();
+            var fixtureUser = _fixture.Create<User>();
+            var service = _factory.CreateService();
+
+            var response =  service.Update(Arg.Any<UserUpdateViewModel>());
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
+
+            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
         }
 
         [Fact]

@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using Microsoft.Extensions.Localization;
+using NSubstitute;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
@@ -6,6 +7,7 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_infra.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Localize;
 using schedule_appointment_service.Services;
 using System;
 using System.Collections.Generic;

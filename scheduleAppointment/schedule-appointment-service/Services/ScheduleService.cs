@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Microsoft.IdentityModel.Tokens;
 using schedule_appointment_domain;
+using schedule_appointment_domain.Exceptions;
 using schedule_appointment_domain.Helpers;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
@@ -9,6 +11,7 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Localize;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,53 +28,54 @@ namespace schedule_appointment_service.Services
     {
         private readonly IScheduleRepository _scheduleRepository;
         private readonly IUnitOfWork _uow;
+      
+
         public ScheduleService(IScheduleRepository scheduleRepository, IUnitOfWork uow)
         {
             _scheduleRepository = scheduleRepository;
             _uow = uow;
+        
         }
 
         public async Task<int> CreateAsync(ScheduleCreateViewModel scheduleCreateViewModel)
         {
-             
-            var schedule = new Schedule
-            {
-                ScheduleDate = scheduleCreateViewModel.ScheduleDate.AddHours(3),
-                WillAttend = true,
-                ClientId = scheduleCreateViewModel.ClientId,
-                CreationDate = DateTime.UtcNow,
-                ProfessionalId = scheduleCreateViewModel.ProfessionalId
-            };
 
             try {
+                var schedule = new Schedule {
+                    ScheduleDate = scheduleCreateViewModel.ScheduleDate.AddHours(3),
+                    WillAttend = true,
+                    ClientId = scheduleCreateViewModel.ClientId,
+                    CreationDate = DateTime.UtcNow,
+                    ProfessionalId = scheduleCreateViewModel.ProfessionalId
+                };
                 await _scheduleRepository.CreateAsync(schedule);
                 await _uow.Commit();
+                return schedule.Id;
             }
             catch (Exception e){
-             
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
             } 
-            return schedule.Id;
+           
         }
 
         public async Task<Boolean> Disable(int id)
         {
-
-            var schedule = await _scheduleRepository.GetByIdAsync(id);
-            if (schedule is null)
-                throw new Exception();
-
-            schedule.WillAttend = false;
-
             try
             {
+                var schedule = await _scheduleRepository.GetByIdAsync(id);
+                if (schedule is null)
+                    throw new Exception();
+
+                schedule.WillAttend = false;
+
                 _scheduleRepository.Update(schedule);
                 await _uow.Commit();
                 return true;
             }
             catch (Exception e)
             {
-                return false;
-            }
+               return false;
+            } 
         }
 
         public Task<IEnumerable<ScheduleResponse>> GetByDateAsync(DateTime date)
@@ -111,8 +115,7 @@ namespace schedule_appointment_service.Services
             var schedules = await _scheduleRepository.GetAllPageableByDateAsync(schedulePageableRequest, dateTime);
             return schedules;
         }
-
-
+         
         public async Task SendMessage()
         {   
             DateTime dateTime = DateTime.Now.AddDays(1);
@@ -143,7 +146,7 @@ namespace schedule_appointment_service.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message,e);
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável"); ;
             }
         }
     }

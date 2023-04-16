@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.Localization;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Exceptions;
 using schedule_appointment_domain.Helpers;
@@ -7,6 +8,7 @@ using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Localize;
 using schedule_appointment_service.Security;
 using System.Net;
 
@@ -16,14 +18,16 @@ namespace schedule_appointment_service.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _uow;
-
+   
         public UserService(
             IUserRepository userRepository,
             IUnitOfWork uow
+           
             ) 
         {
             _userRepository = userRepository;
             _uow = uow;
+           
         }
 
         public async Task<bool> Active(int id)
@@ -49,34 +53,32 @@ namespace schedule_appointment_service.Services
 
         public async Task<string> CreateAsync(UserCreateViewModel userCreateViewModel)
         {
-
-            var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
-            if (obj.Result != null)
-            {
-                throw new NotAuthorizedException("Usuário já cadastrado", HttpStatusCode.Forbidden);
-            }
-
-            var user = new User
-            {
-                Username = userCreateViewModel.Username,
-                Password = PasswordGenerator.GeneratePassword(true, true, true, true, 10),
-                Active = true,
-                CreationDate = DateTime.UtcNow,
-                Name = userCreateViewModel.Name,
-                IsAdmin = userCreateViewModel.IsAdmin,
-            };
-
-            await _userRepository.CreateAsync(user);
             try
             {
+                var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
+                if (obj.Result != null) {
+                    throw new NotAuthorizedException("Usuário já cadastrado", HttpStatusCode.Forbidden);
+                }
+
+                var user = new User {
+                    Username = userCreateViewModel.Username,
+                    Password = PasswordGenerator.GeneratePassword(true, true, true, true, 10),
+                    Active = true,
+                    CreationDate = DateTime.UtcNow,
+                    Name = userCreateViewModel.Name,
+                    IsAdmin = userCreateViewModel.IsAdmin,
+                };
+
+                await _userRepository.CreateAsync(user);
                 await _uow.Commit();
+                return user.Password;
 
             }
             catch (Exception e)
             {
-
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
             }
-            return user.Password;
+            
         }
 
         public async Task<bool> Disable(int id)
@@ -95,9 +97,9 @@ namespace schedule_appointment_service.Services
             }
             catch (Exception e)
             {
-                
+                return false;
             }
-            return false;
+          
         }
 
         public async Task<UserFindViewModel?> GetByIdAsync(int id)
@@ -118,18 +120,15 @@ namespace schedule_appointment_service.Services
 
         public async Task<int> Update(UserUpdateViewModel userUpdateViewModel)
         {
-            var obj = new User
-            {
-                Username = userUpdateViewModel.Username,
-                Active = userUpdateViewModel.Active,
-                Name = userUpdateViewModel.Name,
-                Id = userUpdateViewModel.Id,
-                IsAdmin = userUpdateViewModel.IsAdmin
-            };
-
             try
             {
-
+                var obj = new User {
+                    Username = userUpdateViewModel.Username,
+                    Active = userUpdateViewModel.Active,
+                    Name = userUpdateViewModel.Name,
+                    Id = userUpdateViewModel.Id,
+                    IsAdmin = userUpdateViewModel.IsAdmin
+                };
                 var user = await _userRepository.GetByIdAsync(obj.Id);
                 if (user is null)
                     throw new Exception();
@@ -141,12 +140,12 @@ namespace schedule_appointment_service.Services
                 _userRepository.Update(user);
 
                 await _uow.Commit();
+                return obj.Id;
             }
             catch (Exception e)
             {
-                
-            }
-            return obj.Id;
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+            } 
         }
 
         public async Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest)

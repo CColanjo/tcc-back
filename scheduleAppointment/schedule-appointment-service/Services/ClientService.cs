@@ -1,10 +1,13 @@
-﻿using schedule_appointment_domain;
+﻿using Microsoft.Extensions.Localization;
+using schedule_appointment_domain;
+using schedule_appointment_domain.Exceptions;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Localize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,36 +21,34 @@ namespace schedule_appointment_service.Services
     {
         private readonly IClientRepository _clientRepository;
         private readonly IUnitOfWork _uow;
-       
+ 
 
         public ClientService(IClientRepository clientRepository, IUnitOfWork uow)
         {
             _clientRepository = clientRepository;
             _uow = uow;
-
         }
 
-        public async Task<int> CreateAsync(ClientViewModel.ClientCreateViewModel clientCreateViewModel)
+        public async Task<int> CreateAsync(ClientCreateViewModel clientCreateViewModel)
         {
-            var client = new Client
-            {
-                Name = clientCreateViewModel.Name,
-                Cellphone = clientCreateViewModel.Cellphone,
-                Email = clientCreateViewModel.Email,
-                Address = clientCreateViewModel.Address,
-                CreationDate = DateTime.UtcNow,
-
-            };
-
-            await _clientRepository.CreateAsync(client);
             try 
             {
+                var client = new Client {
+                    Name = clientCreateViewModel.Name,
+                    Cellphone = clientCreateViewModel.Cellphone,
+                    Email = clientCreateViewModel.Email,
+                    Address = clientCreateViewModel.Address,
+                    CreationDate = DateTime.UtcNow,
+
+                };
+
+                await _clientRepository.CreateAsync(client);
                 await _uow.Commit();
+                return client.Id;
             }
             catch (Exception e){
-               
-            } 
-            return client.Id;
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+            }  
         } 
 
         public async Task<ClientFindViewModel?> GetByIdAsync(int id)
@@ -78,36 +79,33 @@ namespace schedule_appointment_service.Services
         }
 
         public async Task<int> Update(ClientUpdateViewModel clientUpdateViewModel)
-        {
-            var obj = new Client
-            {
-                Name = clientUpdateViewModel.Name,
-                Cellphone = clientUpdateViewModel.Cellphone,
-                Email = clientUpdateViewModel.Email,
-                Address = clientUpdateViewModel.Address,
-                Id = clientUpdateViewModel.Id,
-            };
-
-            var client = await _clientRepository.GetByIdAsync(obj.Id);
-            if (client is null)
-                throw new Exception();
-
-            client.Name = obj.Name;
-            client.Cellphone = obj.Cellphone;
-            client.Email = obj.Email;
-            client.Address = obj.Address;
-
+        { 
             try
-            {   
+            {
+                var obj = new Client {
+                    Name = clientUpdateViewModel.Name,
+                    Cellphone = clientUpdateViewModel.Cellphone,
+                    Email = clientUpdateViewModel.Email,
+                    Address = clientUpdateViewModel.Address,
+                    Id = clientUpdateViewModel.Id,
+                };
+
+                var client = await _clientRepository.GetByIdAsync(obj.Id);
+                if (client is null)
+                    throw new Exception();
+
+                client.Name = obj.Name;
+                client.Cellphone = obj.Cellphone;
+                client.Email = obj.Email;
+                client.Address = obj.Address;
                 _clientRepository.Update(client);
                 await _uow.Commit();
+                return obj.Id;
             }
             catch (Exception e)
             {
-              
-            }
-
-            return obj.Id;
+                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+            } 
         }
 
         public  async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest)

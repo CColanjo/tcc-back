@@ -492,4 +492,10 @@ Aprovador: {User-Name-Approver}</value>
   <data name="RequestInvoicePaid" xml:space="preserve">
     <value>Pagamento(s) da fatura da solicitação realizado(s).</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ocorreu um erro, aguarde ou entre em contato com o responsavel </value>
+  </data>
+  <data name="PasswordWrong" xml:space="preserve">
+    <value>A senha deve conter caracteres especiais(%¨&amp;@), letras maiúsculas, letras minúscula e ter 10 caracteres</value>
+  </data>
 </root>

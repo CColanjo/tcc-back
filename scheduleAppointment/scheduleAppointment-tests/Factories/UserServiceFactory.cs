@@ -1,10 +1,12 @@
-﻿using NSubstitute;
+﻿using Microsoft.Extensions.Localization;
+using NSubstitute;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Localize;
 using schedule_appointment_service.Services;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace scheduleAppointment_tests.Factories {
     public class UserServiceFactory {
         public readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
         public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
-
+   
         public UserServiceFactory GetAllAsync(IEnumerable<User> users) {
             _userRepository.GetAllAsync().Returns(users);
             return this;
@@ -41,7 +43,13 @@ namespace scheduleAppointment_tests.Factories {
             _userRepository.GetAllPageableAsync(Arg.Any<UserFindListViewModel>()).Returns(users);
             return this;
         }
-          
+
+        public UserServiceFactory GetByUserNameAsync(User user) {
+            _userRepository.GetByUsernameAsync(Arg.Any<string>()).Returns(user);
+            return this;
+        }
+
+
         public UserService CreateService() {
             return new UserService(_userRepository, _uow);
         }
