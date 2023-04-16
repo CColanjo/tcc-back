@@ -1,12 +1,9 @@
-using Moq;
-using schedule_appointment_service.Services;
-using schedule_appointment_service.Interface;
+
 using Xunit;
 using schedule_appointment_domain.Model.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Default.Project.Api.Controllers;
 using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
 using scheduleAppointment_tests.Factories;
 using AutoFixture;
@@ -14,9 +11,7 @@ using schedule_appointment_domain.Model.Entities;
 using NSubstitute;
 using schedule_appointment_domain.Model.Pagination;
 using System;
-using schedule_appointment_domain.Exceptions;
-using Microsoft.Extensions.Localization;
-using schedule_appointment_service.Localize;
+
 
 namespace scheduleAppointment_tests.Services
 {

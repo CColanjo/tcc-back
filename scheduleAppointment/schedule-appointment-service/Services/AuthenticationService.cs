@@ -17,27 +17,25 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Security.Principal;
+using schedule_appointment_domain.Helpers;
 
 namespace schedule_appointment_service.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IStringLocalizer<Resource> _localizer;
-       
-        private readonly TokenSettings _setting;
+        private readonly IStringLocalizer<Resource> _localizer; 
         private readonly JwtCredentialsProvider _jwtCredentialsProvider;
         private readonly IUnitOfWork _uow;
         
         public AuthenticationService(IUserRepository userRepository,
-            IStringLocalizer<Resource> localizer,
-            IOptions<TokenSettings> setting,
+            IStringLocalizer<Resource> localizer, 
             JwtCredentialsProvider jwtCredentialsProvider,
             IUnitOfWork uow )
         {
             _userRepository = userRepository;
             _localizer = localizer;
-            _setting = setting.Value;
+           
             _jwtCredentialsProvider = jwtCredentialsProvider;
             _uow = uow; 
         }
@@ -49,11 +47,11 @@ namespace schedule_appointment_service.Services
 
             if (user == null)
             {
-                throw new JwtClaimException(_localizer["InvalidUserNameOrPassword"]);
+                throw new JwtClaimException("Usuário ou senha inválidos");
             }
 
             if (user?.Password != authRequest.Password || !user.Active)
-                throw new JwtClaimException(_localizer["InvalidUserNameOrPassword"]);
+                throw new JwtClaimException("Usuário ou senha inválidos");
 
             return GenerateAuthenticationToken(user);
         }
@@ -75,7 +73,7 @@ namespace schedule_appointment_service.Services
 
             var createdDate = DateTime.UtcNow;
 
-            var expirationDate = createdDate.Add(new TimeSpan(0, 0, _setting.Seconds));
+            var expirationDate = createdDate.Add(new TimeSpan(0, 0, 60));
 
             var jwtHandler = new JwtSecurityTokenHandler();
 
@@ -92,77 +90,45 @@ namespace schedule_appointment_service.Services
                 Username = user.Username,
                 Token = jwtHandler.WriteToken(securityToken),
                 Created = createdDate,
-                Expires = expirationDate,
-                RefreshToken = GenerateRefreshAuthenticationToken(user),
+                Expires = expirationDate, 
                 isAdmin = user.IsAdmin
             };
-        }
+        } 
 
+        public async Task<string> ChangePasswordAsync(OAuthResetPasswordConfirmation request) {
 
-        private string GenerateRefreshAuthenticationToken(User entity)
-        {
-            var idEntity = new ClaimsIdentity
-            (
-                new GenericIdentity(entity.Name.ToString(), ClaimTypes.Sid),
-                new[]
-                {
-                    new System.Security.Claims.Claim("refresh_token", "true"),
-                    new System.Security.Claims.Claim("refresh_password", entity.Password)
-                }
-            );
-
-            var createdDate = DateTime.UtcNow;
-
-            var expirationDate = createdDate.Add(new TimeSpan(0, 0, _setting.Seconds * 2));
-
-            var jwtHandler = new JwtSecurityTokenHandler();
-
-            var refreshToken = jwtHandler.CreateToken(new SecurityTokenDescriptor
-            {
-                Issuer = _setting.Issuer,
-                Audience = _setting.Audience,
-                SigningCredentials = _jwtCredentialsProvider.SigningCredentials,
-                Subject = idEntity,
-                NotBefore = createdDate,
-                Expires = expirationDate
-            });
-
-            return jwtHandler.WriteToken(refreshToken);
-        }
-
-        public async Task ChangePasswordAsync(OAuthResetPasswordConfirmation request)
-        {
             var user = await _userRepository.GetByUsernameAsync(request.Username);
 
             if (user is null)
-                throw new BusinessException(string.Format(_localizer["UserNotFound"], request.Username));
+                throw new BusinessException(string.Format("Usuário não encontrado", request.Username));
 
             if (request.NewPassword != request.NewPasswordConfirmation)
-                throw new BusinessException(string.Format(_localizer["PasswordsAreNotTheSame"], request.OldPassword));
+                throw new BusinessException(string.Format("As senhas não são as mesmas", request.OldPassword));
 
             if (request.OldPassword != user.Password)
-                throw new BusinessException(string.Format(_localizer["CurrentPasswordDoesNotMatch"], request.OldPassword));
+                throw new BusinessException(string.Format("A senha está incorreta ou a nova senha é inválida.", request.OldPassword));
 
             if (!ValidarSenha(request.NewPassword)) {
-                throw new BusinessException(string.Format(_localizer["PasswordWrong"], request.OldPassword));
+                throw new BusinessException(string.Format("A senha deve conter caracteres especiais(%¨&amp;@), letras maiúsculas, letras minúscula e ter 10 caracteres", request.OldPassword));
             }
 
-            user.Password = request.NewPassword;
-
-            try { 
-                 _userRepository.Update(user);
+            try {
+                user.Password = request.NewPassword;
+                _userRepository.Update(user);
                 await _uow.Commit();
+
+                return user.Username;
             }
             catch (Exception e)
             {
 
             }
-         
+            return "";
         }
 
         public bool ValidarSenha(string senha) {
-            // A senha deve ter exatamente 10 caracteres
-            if (senha.Length != 10) {
+           
+            if (senha.Length <= 10) {
                 return false;
             }
 
