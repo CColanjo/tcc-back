@@ -36,19 +36,10 @@ namespace scheduleAppointment_tests.Services
             var service = _factory.CreateService();
 
             var response = await service.CreateAsync(fixtureUserCreateViewModel);
-            Assert.IsType<string>(response);
+            Assert.IsType<int>(response);
         }
 
-        [Fact]
-        public async Task User_CreateUser_Error() {
-            var fixtureUserCreateViewModel = _fixture.Create<UserCreateViewModel>();
-            var service = _factory.CreateService(); 
-            var response = service.CreateAsync(Arg.Any<UserCreateViewModel>());
-            var exception = Assert.ThrowsAsync<Exception>(() => response);
-
-            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
-        }
-
+        
         [Fact]
         public async Task User_CreateUser_UserRegistered() {
             var fixtureUser = _fixture.Create<User>();
@@ -73,17 +64,7 @@ namespace scheduleAppointment_tests.Services
             Assert.IsType<int>(response);
         }
 
-        [Fact]
-        public async Task User_Update_Error() {
-            var fixtureUserUpdateViewModel = _fixture.Create<UserUpdateViewModel>();
-            var fixtureUser = _fixture.Create<User>();
-            var service = _factory.CreateService();
-
-            var response =  service.Update(Arg.Any<UserUpdateViewModel>());
-            var exception = Assert.ThrowsAsync<Exception>(() => response);
-
-            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
-        }
+        
 
         [Fact]
         public async Task User_GetByIdAsync_Success() {

@@ -28,20 +28,22 @@ namespace schedule_appointment_service.Services
     {
         private readonly IScheduleRepository _scheduleRepository;
         private readonly IUnitOfWork _uow;
-      
+
 
         public ScheduleService(IScheduleRepository scheduleRepository, IUnitOfWork uow)
         {
             _scheduleRepository = scheduleRepository;
             _uow = uow;
-        
+
         }
 
         public async Task<int> CreateAsync(ScheduleCreateViewModel scheduleCreateViewModel)
         {
 
-            try {
-                var schedule = new Schedule {
+            try
+            {
+                var schedule = new Schedule
+                {
                     ScheduleDate = scheduleCreateViewModel.ScheduleDate.AddHours(3),
                     WillAttend = true,
                     ClientId = scheduleCreateViewModel.ClientId,
@@ -52,30 +54,34 @@ namespace schedule_appointment_service.Services
                 await _uow.Commit();
                 return schedule.Id;
             }
-            catch (Exception e){
+            catch (Exception e)
+            {
                 throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
-            } 
-           
+            }
+
         }
 
         public async Task<Boolean> Disable(int id)
         {
+
+            var schedule = await _scheduleRepository.GetByIdAsync(id);
+            if (schedule is null)
+                throw new Exception();
+
+            schedule.WillAttend = false;
+
+            _scheduleRepository.Update(schedule);
+
             try
             {
-                var schedule = await _scheduleRepository.GetByIdAsync(id);
-                if (schedule is null)
-                    throw new Exception();
-
-                schedule.WillAttend = false;
-
-                _scheduleRepository.Update(schedule);
                 await _uow.Commit();
-                return true;
+
             }
             catch (Exception e)
             {
-               return false;
-            } 
+
+            }
+            return true;
         }
 
         public Task<IEnumerable<ScheduleResponse>> GetByDateAsync(DateTime date)
@@ -110,24 +116,25 @@ namespace schedule_appointment_service.Services
             return schedules;
         }
 
-        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel schedulePageableRequest) {
+        public async Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel schedulePageableRequest)
+        {
             DateTime dateTime = DateTime.Now;
             var schedules = await _scheduleRepository.GetAllPageableByDateAsync(schedulePageableRequest, dateTime);
             return schedules;
         }
-         
+
         public async Task SendMessage()
-        {   
+        {
             DateTime dateTime = DateTime.Now.AddDays(1);
             var clients = await _scheduleRepository.GetByDateAsync(dateTime);
-           
+
             if (!clients.IsNullOrEmpty())
             {
                 foreach (var client in clients)
                 {
-                   SendMessageTwillio(client.NameClient, client.CellPhone, client.ScheduleDate.AddHours(-3), client.NameProfessional);
+                    SendMessageTwillio(client.NameClient, client.CellPhone, client.ScheduleDate.AddHours(-3), client.NameProfessional);
                 }
-            } 
+            }
         }
 
         public void SendMessageTwillio(string name, string cellphone, DateTime date, string professionalName)
@@ -139,7 +146,7 @@ namespace schedule_appointment_service.Services
 
                 TwilioClient.Init(accountSid, authToken);
                 var message = MessageResource.Create(
-                          body: "Olá "+ name +" você tem um horário marcado " + date.Day +"/"+ date.Month+"/"+date.Year +  " às " + date.Hour + ":" + date.Minute + " com " + professionalName+" Envie sim, caso for comparecer",
+                          body: "Olá " + name + " você tem um horário marcado " + date.Day + "/" + date.Month + "/" + date.Year + " às " + date.Hour + ":" + date.Minute + " com " + professionalName + " Envie sim, caso for comparecer",
                           from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
                           to: new Twilio.Types.PhoneNumber("whatsapp:+55" + cellphone)
                  );

@@ -7,7 +7,7 @@ namespace schedule_appointment_service.Interface
 {
     public interface IUserService
     {
-        Task<string> CreateAsync(UserCreateViewModel userCreateViewModel);
+        Task<int> CreateAsync(UserCreateViewModel userCreateViewModel);
         Task<int> Update(UserUpdateViewModel userUpdateViewModel);
         Task<UserFindViewModel?> GetByIdAsync(int id);
         Task<bool> Disable(int id);

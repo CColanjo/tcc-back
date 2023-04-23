@@ -194,8 +194,6 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
-C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230407140143_638164729039161023.json
-C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230407140507_638164731079322198.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\Localize\Resource.cs
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\AutoFixture.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\Fare.dll
@@ -203,4 +201,9 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\en-US\schedule-appointment-domain.resources.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\es-CO\schedule-appointment-domain.resources.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\pt-BR\schedule-appointment-domain.resources.dll
-C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230416134236_638172493561478993.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423161955_638178635958620067.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423162003_638178636034291927.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423162014_638178636148137723.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423162024_638178636249750786.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\SendGrid.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\StarkbankEcdsa.dll

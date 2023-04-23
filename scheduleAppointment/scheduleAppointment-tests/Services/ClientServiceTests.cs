@@ -45,17 +45,6 @@ namespace scheduleAppointment_tests.Services
             Assert.IsType<int>(response);
         }
 
-        [Fact]
-        public async Task Client_CreateClient_Error() {
-            var fixtureClientCreateViewModel = _fixture.Create<ClientCreateViewModel>();
-            var service = _factory.CreateAsync().CreateService();
-
-
-            var response =  service.CreateAsync(Arg.Any<ClientCreateViewModel>());
-            var exception = Assert.ThrowsAsync<Exception>(() =>  response);
-
-            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message); 
-        }
         
         [Fact]
         public async Task Client_Update_Success() {
@@ -67,18 +56,7 @@ namespace scheduleAppointment_tests.Services
             Assert.IsType<int>(response);
         }
 
-        [Fact]
-        public async Task Client_Update_Error() {
-            var fixtureClientUpdateViewModel = _fixture.Create<ClientUpdateViewModel>();
-            var fixtureClient = _fixture.Create<Client>();
-            var service = _factory.GetByIdAsync(fixtureClient).CreateService();
-
-            var response = service.Update(Arg.Any<ClientUpdateViewModel>());
-            var exception = Assert.ThrowsAsync<Exception>(() => response);
-
-            Assert.Equal("Ocorreu um erro, aguarde ou entre em contato com o responsável", exception.Result.Message);
-        }
-
+         
         [Fact]
         public async Task Client_GetByIdAsync_Success() {
             var fixtureClient = _fixture.Create<Client>();

@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Localization;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Exceptions;
@@ -20,7 +21,7 @@ namespace schedule_appointment_service.Services
         private readonly IUnitOfWork _uow;
         private readonly ISendEmail _sendEmail;
         private readonly IApikeyRepository _apikeyRepository;
-   
+
         public UserService(
             IUserRepository userRepository,
             IUnitOfWork uow,
@@ -55,47 +56,46 @@ namespace schedule_appointment_service.Services
             return false;
         }
 
-        public async Task<string> CreateAsync(UserCreateViewModel userCreateViewModel)
+
+        public async Task<int> CreateAsync(UserCreateViewModel userCreateViewModel)
         {
 
             var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
             if (obj.Result != null)
             {
-                throw new Exception("Usuário já cadastrado");
+                throw new NotAuthorizedException("Usuário já cadastrado", HttpStatusCode.Forbidden);
             }
 
+            var apiKey = await _apikeyRepository.GetApikey("email");
+
+            var password = PasswordGenerator.GeneratePassword(true, true, true, true, 10);
+
+            var user = new User
+            {
+                Username = userCreateViewModel.Username,
+                Password = password,
+                Active = true,
+                CreationDate = DateTime.UtcNow,
+                Name = userCreateViewModel.Name,
+                IsAdmin = userCreateViewModel.IsAdmin,
+                Email = userCreateViewModel.Email
+            };
+
+            await _userRepository.CreateAsync(user);
             try
             {
-              
-                var password = PasswordGenerator.GeneratePassword(true, true, true, true, 10);
-
-                var user = new User
-                {
-                    Username = userCreateViewModel.Username,
-                    Password = password,
-                    Active = true,
-                    CreationDate = DateTime.UtcNow,
-                    Name = userCreateViewModel.Name,
-                    IsAdmin = userCreateViewModel.IsAdmin,
-                    Email = userCreateViewModel.Email
-                };
-
-                var apiKey = await _apikeyRepository.GetApikey("email");
-
-                await _userRepository.CreateAsync(user);
                 await _uow.Commit();
 
-            
-               _sendEmail.SendEmailAsync(user.Email, "Sua senha é "+ password, user.Name, apiKey.Key);
-                
-               return "Criou usuário, verifique o e-mail ou caixa de span";
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+
             }
 
+            _sendEmail.SendEmailAsync(user.Email, "Sua senha é " + password, user.Name, apiKey.Key);
+            return user.Id;
         }
+
 
         public async Task<bool> Disable(int id)
         {
@@ -171,5 +171,7 @@ namespace schedule_appointment_service.Services
             var users = await _userRepository.GetAllPageableAsync(userPageableRequest);
             return users;
         }
+
+         
     }
 }

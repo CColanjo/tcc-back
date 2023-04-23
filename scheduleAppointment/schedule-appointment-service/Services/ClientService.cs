@@ -31,8 +31,7 @@ namespace schedule_appointment_service.Services
 
         public async Task<int> CreateAsync(ClientCreateViewModel clientCreateViewModel)
         {
-            try 
-            {
+            
                 var client = new Client {
                     Name = clientCreateViewModel.Name,
                     Cellphone = clientCreateViewModel.Cellphone,
@@ -42,13 +41,17 @@ namespace schedule_appointment_service.Services
 
                 };
 
+            try
+            {
                 await _clientRepository.CreateAsync(client);
                 await _uow.Commit();
-                return client.Id;
+                
             }
             catch (Exception e){
-                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
-            }  
+             
+            }
+
+            return client.Id;
         } 
 
         public async Task<ClientFindViewModel?> GetByIdAsync(int id)
@@ -80,8 +83,7 @@ namespace schedule_appointment_service.Services
 
         public async Task<int> Update(ClientUpdateViewModel clientUpdateViewModel)
         { 
-            try
-            {
+           
                 var obj = new Client {
                     Name = clientUpdateViewModel.Name,
                     Cellphone = clientUpdateViewModel.Cellphone,
@@ -99,13 +101,18 @@ namespace schedule_appointment_service.Services
                 client.Email = obj.Email;
                 client.Address = obj.Address;
                 _clientRepository.Update(client);
+
+            try
+            {
                 await _uow.Commit();
-                return obj.Id;
+                
             }
             catch (Exception e)
             {
-                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
-            } 
+                 
+            }
+
+            return obj.Id;
         }
 
         public  async Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest)

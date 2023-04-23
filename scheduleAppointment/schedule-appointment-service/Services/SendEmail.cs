@@ -21,7 +21,7 @@ namespace schedule_appointment_service.Services
             {
               
                 var client = new SendGridClient(apiKey);
-                var from = new EmailAddress("c.colanjo@gmail.com", "Camila");
+                var from = new EmailAddress("cacolanjo@gmail.com", "Camila");
                 var subject = "Password";
                 var to = new EmailAddress(email, name);
                 var plainTextContent = "";

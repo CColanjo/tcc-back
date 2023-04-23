@@ -18,7 +18,8 @@ namespace scheduleAppointment_tests.Factories {
     public class UserServiceFactory {
         public readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
         public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
-   
+        public readonly ISendEmail _sendEmail = Substitute.For<ISendEmail>();
+        public readonly IApikeyRepository _apikeyRepository = Substitute.For<IApikeyRepository>();
         public UserServiceFactory GetAllAsync(IEnumerable<User> users) {
             _userRepository.GetAllAsync().Returns(users);
             return this;
@@ -51,7 +52,7 @@ namespace scheduleAppointment_tests.Factories {
 
 
         public UserService CreateService() {
-            return new UserService(_userRepository, _uow);
+            return new UserService(_userRepository, _uow, _sendEmail, _apikeyRepository);
         }
     }
 }

@@ -18,13 +18,15 @@ namespace scheduleAppointment_tests.Factories {
         private readonly IStringLocalizer<Resource> _localizer = Substitute.For<IStringLocalizer<Resource>>(); 
         private readonly JwtCredentialsProvider _jwtCredentialsProvider = Substitute.For<JwtCredentialsProvider>();
         private readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
+        private readonly IOptions<TokenSettings> _setting = Substitute.For<IOptions<TokenSettings>>();
+
 
         public AuthenticationServiceFactory GetByUsernameAsync(User user) {
             _userRepository.GetByUsernameAsync(Arg.Any<string>()).Returns(user);
             return this;
         }
         public AuthenticationService CreateService() {
-            return new AuthenticationService(_userRepository, _localizer, _jwtCredentialsProvider, _uow);
+            return new AuthenticationService(_userRepository, _localizer, _jwtCredentialsProvider, _uow, _setting);
         }
     }
 
