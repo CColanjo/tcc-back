@@ -87,7 +87,7 @@ namespace schedule_appointment_service.Services
             }
             catch (Exception e)
             {
-                throw new Exception( e.Message);
+                throw new Exception(e.Message);
             }
 
         }
