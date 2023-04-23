@@ -68,7 +68,7 @@ namespace schedule_appointment_service.Services
 
             var apiKey = await _apikeyRepository.GetApikey("email");
 
-            var password = PasswordGenerator.GeneratePassword(true, true, true, true, 10);
+            var password = PasswordGenerator.GeneratePassword();
 
             var user = new User
             {

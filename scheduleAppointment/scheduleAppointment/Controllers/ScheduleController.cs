@@ -64,11 +64,11 @@ namespace Default.Project.Api.Controllers
             return await _service.GetAllPageableByDateAsync(pageableRequest);
         }
 
-        //[AllowAnonymous]
-        //[HttpGet("schedule/sendMessage")]
-        //public async Task SendMessage()
-        //{
-        //     RecurringJob.AddOrUpdate(() => _service.SendMessage(), "0 11 * * *", TimeZoneInfo.Utc); 
-        //}
+        [AllowAnonymous]
+        [HttpGet("schedule/sendMessage")]
+        public async Task SendMessage()
+        {
+             RecurringJob.AddOrUpdate(() => _service.SendMessage(), "0 11 * * *", TimeZoneInfo.Utc); 
+        }
     }
 }
