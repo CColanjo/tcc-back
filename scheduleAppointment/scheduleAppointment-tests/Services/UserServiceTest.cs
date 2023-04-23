@@ -57,7 +57,7 @@ namespace scheduleAppointment_tests.Services
 
             var response =  service.CreateAsync(fixtureUserCreateViewModel); 
    
-            var exception = Assert.ThrowsAsync<NotAuthorizedException>(() => response);
+            var exception = Assert.ThrowsAsync<Exception>(() => response);
 
             Assert.Equal("Usuário já cadastrado", exception.Result.Message);
 

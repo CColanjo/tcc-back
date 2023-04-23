@@ -41,5 +41,6 @@ namespace schedule_appointment_domain.Model.Response
         public DateTimeOffset Expires { get; set; }
  
         public Boolean isAdmin { get; set; }
+
     }
 }

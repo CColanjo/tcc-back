@@ -6,12 +6,13 @@ namespace schedule_appointment_domain.Model.ViewModels
     {
         public string Name { get; init; } = default!;
         public string Username { get; init; } = default!;
-
+        public string Email { get; init; } = default!;
     }
 
     public record UserCreateViewModel : UserViewModelBase
     {
         public bool IsAdmin { get; init; }
+       
     }
 
     public record UserUpdateViewModel : UserViewModelBase

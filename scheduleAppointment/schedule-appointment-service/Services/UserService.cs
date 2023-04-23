@@ -18,16 +18,17 @@ namespace schedule_appointment_service.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _uow;
+        private readonly ISendEmail _sendEmail;
    
         public UserService(
             IUserRepository userRepository,
-            IUnitOfWork uow
-           
-            ) 
+            IUnitOfWork uow,
+            ISendEmail sendEmail
+            )
         {
             _userRepository = userRepository;
             _uow = uow;
-           
+            _sendEmail = sendEmail;
         }
 
         public async Task<bool> Active(int id)
@@ -46,39 +47,49 @@ namespace schedule_appointment_service.Services
             }
             catch (Exception e)
             {
-               
+
             }
             return false;
         }
 
         public async Task<string> CreateAsync(UserCreateViewModel userCreateViewModel)
         {
+
+            var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
+            if (obj.Result != null)
+            {
+                throw new Exception("Usuário já cadastrado");
+            }
+
             try
             {
-                var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
-                if (obj.Result != null) {
-                    throw new NotAuthorizedException("Usuário já cadastrado", HttpStatusCode.Forbidden);
-                }
+              
+                var password = PasswordGenerator.GeneratePassword(true, true, true, true, 10);
 
-                var user = new User {
+                var user = new User
+                {
                     Username = userCreateViewModel.Username,
-                    Password = PasswordGenerator.GeneratePassword(true, true, true, true, 10),
+                    Password = password,
                     Active = true,
                     CreationDate = DateTime.UtcNow,
                     Name = userCreateViewModel.Name,
                     IsAdmin = userCreateViewModel.IsAdmin,
+                    Email = userCreateViewModel.Email
                 };
 
                 await _userRepository.CreateAsync(user);
                 await _uow.Commit();
-                return user.Password;
 
+            
+               _sendEmail.SendEmailAsync(user.Email, "Sua senha é "+ password, user.Name);
+                
+               return "Criou usuário, verifique o e-mail ou caixa de span";
             }
             catch (Exception e)
             {
-                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+                throw new Exception( e.Message);
             }
-            
+
         }
 
         public async Task<bool> Disable(int id)
@@ -99,7 +110,7 @@ namespace schedule_appointment_service.Services
             {
                 return false;
             }
-          
+
         }
 
         public async Task<UserFindViewModel?> GetByIdAsync(int id)
@@ -122,12 +133,14 @@ namespace schedule_appointment_service.Services
         {
             try
             {
-                var obj = new User {
+                var obj = new User
+                {
                     Username = userUpdateViewModel.Username,
                     Active = userUpdateViewModel.Active,
                     Name = userUpdateViewModel.Name,
                     Id = userUpdateViewModel.Id,
-                    IsAdmin = userUpdateViewModel.IsAdmin
+                    IsAdmin = userUpdateViewModel.IsAdmin,
+                    Email = userUpdateViewModel.Email
                 };
                 var user = await _userRepository.GetByIdAsync(obj.Id);
                 if (user is null)
@@ -145,7 +158,7 @@ namespace schedule_appointment_service.Services
             catch (Exception e)
             {
                 throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
-            } 
+            }
         }
 
         public async Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest)

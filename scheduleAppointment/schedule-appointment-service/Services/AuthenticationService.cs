@@ -27,15 +27,16 @@ namespace schedule_appointment_service.Services
         private readonly IStringLocalizer<Resource> _localizer; 
         private readonly JwtCredentialsProvider _jwtCredentialsProvider;
         private readonly IUnitOfWork _uow;
-        
+        private readonly TokenSettings _setting;
         public AuthenticationService(IUserRepository userRepository,
             IStringLocalizer<Resource> localizer, 
             JwtCredentialsProvider jwtCredentialsProvider,
-            IUnitOfWork uow )
+            IUnitOfWork uow,
+            IOptions<TokenSettings> setting)
         {
             _userRepository = userRepository;
             _localizer = localizer;
-           
+            _setting = setting.Value;
             _jwtCredentialsProvider = jwtCredentialsProvider;
             _uow = uow; 
         }
@@ -90,7 +91,8 @@ namespace schedule_appointment_service.Services
                 Username = user.Username,
                 Token = jwtHandler.WriteToken(securityToken),
                 Created = createdDate,
-                Expires = expirationDate, 
+                Expires = expirationDate,
+                RefreshToken = GenerateRefreshAuthenticationToken(user),
                 isAdmin = user.IsAdmin
             };
         } 
@@ -153,6 +155,37 @@ namespace schedule_appointment_service.Services
 
             // Se a senha passou por todas as validações, retorna verdadeiro
             return true;
+        }
+
+        private string GenerateRefreshAuthenticationToken(User entity)
+        {
+            var idEntity = new ClaimsIdentity
+            (
+                new GenericIdentity(entity.Name, ClaimTypes.Sid),
+                new[]
+                {
+                    new System.Security.Claims.Claim("refresh_token", "true"),
+                    new System.Security.Claims.Claim("refresh_password", entity.Password)
+                }
+            );
+
+            var createdDate = DateTime.UtcNow;
+
+            var expirationDate = createdDate.Add(new TimeSpan(0, 0, _setting.Seconds * 2));
+
+            var jwtHandler = new JwtSecurityTokenHandler();
+
+            var refreshToken = jwtHandler.CreateToken(new SecurityTokenDescriptor
+            {
+                Issuer = _setting.Issuer,
+                Audience = _setting.Audience,
+                SigningCredentials = _jwtCredentialsProvider.SigningCredentials,
+                Subject = idEntity,
+                NotBefore = createdDate,
+                Expires = expirationDate
+            });
+
+            return jwtHandler.WriteToken(refreshToken);
         }
     }
 }
