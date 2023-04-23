@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bcXui21VnjEvT7t+UWxnG74bN8XYDiTZw7TPLv4/w5XsSAph3K7Cnw8SAeZkp15vcbxskEIyvYxNilN6vxAQ3w==",
+  "dgSpecHash": "k0fwEQoUQ6fGnpXS9SzIyds4WeSbc1sGyw6iewMRyLWsESec2Uooor+OBzuuDTfopKacIps7QH52enAgrxn3QA==",
   "success": true,
   "projectFilePath": "C:\\Users\\camil\\Documents\\TCC\\scheduleAppointment\\scheduleAppointment\\scheduleAppointment-tests\\scheduleAppointment-tests.csproj",
   "expectedPackageFiles": [
@@ -114,6 +114,7 @@
     "C:\\Users\\camil\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\sendgrid\\9.28.1\\sendgrid.9.28.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\serilog.aspnetcore\\6.0.1\\serilog.aspnetcore.6.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\serilog.enrichers.correlationid\\3.0.1\\serilog.enrichers.correlationid.3.0.1.nupkg.sha512",
@@ -126,6 +127,7 @@
     "C:\\Users\\camil\\.nuget\\packages\\serilog.sinks.console\\4.0.1\\serilog.sinks.console.4.0.1.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\serilog.sinks.debug\\2.0.0\\serilog.sinks.debug.2.0.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
+    "C:\\Users\\camil\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\camil\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

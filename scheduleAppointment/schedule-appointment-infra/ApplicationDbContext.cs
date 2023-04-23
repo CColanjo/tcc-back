@@ -22,6 +22,7 @@ namespace schedule_appointment_infra
         public DbSet<Schedule> Schedule { get; set; } = default!;
         public DbSet<Professional> Professional { get; set; } = default!;
 
+        public DbSet<Apikey> Apikey { get; set; } = default!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Event>(entity =>

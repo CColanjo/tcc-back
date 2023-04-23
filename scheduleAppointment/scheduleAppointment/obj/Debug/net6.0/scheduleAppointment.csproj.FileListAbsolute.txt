@@ -207,3 +207,9 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230407140143_638164729039161023.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230407140507_638164731079322198.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230416134236_638172493561478993.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230423124955_638178509955632634.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230423132151_638178529117382235.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230423132803_638178532838089082.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\SendGrid.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\StarkbankEcdsa.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment\bin\Debug\net6.0\20230423145341_638178584216798062.json

@@ -9,6 +9,6 @@ namespace schedule_appointment_service.Interface
     public interface ISendEmail
     {
 
-        public Task<string> SendEmailAsync(string email, string text, string name);
+        public Task<string> SendEmailAsync(string email, string text, string name, string apiKey);
     }
 }

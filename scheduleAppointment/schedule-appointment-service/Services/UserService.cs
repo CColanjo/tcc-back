@@ -19,16 +19,19 @@ namespace schedule_appointment_service.Services
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _uow;
         private readonly ISendEmail _sendEmail;
+        private readonly IApikeyRepository _apikeyRepository;
    
         public UserService(
             IUserRepository userRepository,
             IUnitOfWork uow,
-            ISendEmail sendEmail
+            ISendEmail sendEmail,
+            IApikeyRepository apikeyRepository
             )
         {
             _userRepository = userRepository;
             _uow = uow;
             _sendEmail = sendEmail;
+            _apikeyRepository = apikeyRepository;
         }
 
         public async Task<bool> Active(int id)
@@ -77,11 +80,13 @@ namespace schedule_appointment_service.Services
                     Email = userCreateViewModel.Email
                 };
 
+                var apiKey = await _apikeyRepository.GetApikey("email");
+
                 await _userRepository.CreateAsync(user);
                 await _uow.Commit();
 
             
-               _sendEmail.SendEmailAsync(user.Email, "Sua senha é "+ password, user.Name);
+               _sendEmail.SendEmailAsync(user.Email, "Sua senha é "+ password, user.Name, apiKey.Key);
                 
                return "Criou usuário, verifique o e-mail ou caixa de span";
             }

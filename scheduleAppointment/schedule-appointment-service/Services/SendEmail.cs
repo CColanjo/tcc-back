@@ -1,4 +1,5 @@
-﻿using schedule_appointment_service.Interface;
+﻿using schedule_appointment_domain.Repositories;
+using schedule_appointment_service.Interface;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -12,11 +13,13 @@ namespace schedule_appointment_service.Services
 {
     public class SendEmail : ISendEmail
     {
-        public async Task<string> SendEmailAsync(string email, string text, string name)
+      
+
+        public async Task<string> SendEmailAsync(string email, string text, string name, string apiKey)
         {
             try
             {
-                var apiKey = "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";
+              
                 var client = new SendGridClient(apiKey);
                 var from = new EmailAddress("c.colanjo@gmail.com", "Camila");
                 var subject = "Password";
