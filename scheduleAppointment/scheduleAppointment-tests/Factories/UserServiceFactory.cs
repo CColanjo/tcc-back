@@ -50,6 +50,13 @@ namespace scheduleAppointment_tests.Factories {
             return this;
         }
 
+        public UserServiceFactory GetApiKey(Apikey api)
+        {
+            _apikeyRepository.GetApikey(Arg.Any<string>()).Returns(api);
+            return this;
+        }
+
+           
 
         public UserService CreateService() {
             return new UserService(_userRepository, _uow, _sendEmail, _apikeyRepository);

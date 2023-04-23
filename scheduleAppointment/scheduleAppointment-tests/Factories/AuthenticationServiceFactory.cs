@@ -15,7 +15,7 @@ namespace scheduleAppointment_tests.Factories {
 
 
         private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
-        private readonly IStringLocalizer<Resource> _localizer = Substitute.For<IStringLocalizer<Resource>>(); 
+     
         private readonly JwtCredentialsProvider _jwtCredentialsProvider = Substitute.For<JwtCredentialsProvider>();
         private readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
         private readonly IOptions<TokenSettings> _setting = Substitute.For<IOptions<TokenSettings>>();
@@ -26,7 +26,7 @@ namespace scheduleAppointment_tests.Factories {
             return this;
         }
         public AuthenticationService CreateService() {
-            return new AuthenticationService(_userRepository, _localizer, _jwtCredentialsProvider, _uow, _setting);
+            return new AuthenticationService(_userRepository, _jwtCredentialsProvider, _uow, _setting);
         }
     }
 

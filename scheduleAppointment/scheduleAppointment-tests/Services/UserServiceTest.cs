@@ -33,7 +33,8 @@ namespace scheduleAppointment_tests.Services
         [Fact]
         public async Task User_CreateUser_Success() {
             var fixtureUserCreateViewModel = _fixture.Create<UserCreateViewModel>();
-            var service = _factory.CreateService();
+            var fixtureApikye = _fixture.Create<Apikey>();
+            var service = _factory.GetApiKey(fixtureApikye).CreateService();
 
             var response = await service.CreateAsync(fixtureUserCreateViewModel);
             Assert.IsType<int>(response);

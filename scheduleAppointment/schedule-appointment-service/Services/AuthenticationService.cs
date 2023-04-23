@@ -24,18 +24,16 @@ namespace schedule_appointment_service.Services
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IStringLocalizer<Resource> _localizer; 
         private readonly JwtCredentialsProvider _jwtCredentialsProvider;
         private readonly IUnitOfWork _uow;
         private readonly TokenSettings _setting;
-        public AuthenticationService(IUserRepository userRepository,
-            IStringLocalizer<Resource> localizer, 
+
+        public AuthenticationService(IUserRepository userRepository, 
             JwtCredentialsProvider jwtCredentialsProvider,
             IUnitOfWork uow,
             IOptions<TokenSettings> setting)
         {
             _userRepository = userRepository;
-            _localizer = localizer;
             _setting = setting.Value;
             _jwtCredentialsProvider = jwtCredentialsProvider;
             _uow = uow; 
@@ -171,14 +169,20 @@ namespace schedule_appointment_service.Services
 
             var createdDate = DateTime.UtcNow;
 
-            var expirationDate = createdDate.Add(new TimeSpan(0, 0, _setting.Seconds * 2));
+            var Seconds = _setting == null? 60 : _setting.Seconds;
+
+            var expirationDate = createdDate.Add(new TimeSpan(0, 0, Seconds * 2));
 
             var jwtHandler = new JwtSecurityTokenHandler();
 
+
+            var Issuer = _setting == null ? "" : _setting.Issuer;
+            var Audience = _setting == null ? "" : _setting.Audience;
+            
             var refreshToken = jwtHandler.CreateToken(new SecurityTokenDescriptor
             {
-                Issuer = _setting.Issuer,
-                Audience = _setting.Audience,
+                Issuer = Issuer,
+                Audience = Audience,
                 SigningCredentials = _jwtCredentialsProvider.SigningCredentials,
                 Subject = idEntity,
                 NotBefore = createdDate,

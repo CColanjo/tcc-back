@@ -207,3 +207,6 @@ C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleApp
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423162024_638178636249750786.json
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\SendGrid.dll
 C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\StarkbankEcdsa.dll
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423171752_638178670726507905.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423172029_638178672296285018.json
+C:\Users\camil\Documents\TCC\scheduleAppointment\scheduleAppointment\scheduleAppointment-tests\bin\Debug\net6.0\20230423172228_638178673481091217.json

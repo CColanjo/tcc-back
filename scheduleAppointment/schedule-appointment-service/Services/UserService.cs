@@ -63,7 +63,7 @@ namespace schedule_appointment_service.Services
             var obj = _userRepository.GetByUsernameAsync(userCreateViewModel.Username);
             if (obj.Result != null)
             {
-                throw new NotAuthorizedException("Usuário já cadastrado", HttpStatusCode.Forbidden);
+                throw new Exception("Usuário já cadastrado");
             }
 
             var apiKey = await _apikeyRepository.GetApikey("email");
