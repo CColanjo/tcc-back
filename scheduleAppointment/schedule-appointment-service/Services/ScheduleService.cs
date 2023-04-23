@@ -40,8 +40,7 @@ namespace schedule_appointment_service.Services
         public async Task<int> CreateAsync(ScheduleCreateViewModel scheduleCreateViewModel)
         {
 
-            try
-            {
+           
                 var schedule = new Schedule
                 {
                     ScheduleDate = scheduleCreateViewModel.ScheduleDate.AddHours(3),
@@ -51,13 +50,17 @@ namespace schedule_appointment_service.Services
                     ProfessionalId = scheduleCreateViewModel.ProfessionalId
                 };
                 await _scheduleRepository.CreateAsync(schedule);
+            try
+            {
                 await _uow.Commit();
-                return schedule.Id;
+               
             }
             catch (Exception e)
             {
-                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+                
             }
+
+            return schedule.Id;
 
         }
 

@@ -128,7 +128,8 @@ namespace schedule_appointment_service.Services
                 Name = user.Name,
                 Username = user.Username,
                 Active = user.Active,
-                IsAdmin = user.IsAdmin
+                IsAdmin = user.IsAdmin,
+                Email = user.Email
             };
 
             return obj;
@@ -136,8 +137,7 @@ namespace schedule_appointment_service.Services
 
         public async Task<int> Update(UserUpdateViewModel userUpdateViewModel)
         {
-            try
-            {
+          
                 var obj = new User
                 {
                     Username = userUpdateViewModel.Username,
@@ -157,13 +157,16 @@ namespace schedule_appointment_service.Services
                 user.IsAdmin = obj.IsAdmin;
                 _userRepository.Update(user);
 
+            try
+            {
                 await _uow.Commit();
-                return obj.Id;
+               
             }
             catch (Exception e)
             {
-                throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável");
+ 
             }
+            return obj.Id;
         }
 
         public async Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest)

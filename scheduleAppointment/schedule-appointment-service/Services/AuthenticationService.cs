@@ -72,7 +72,9 @@ namespace schedule_appointment_service.Services
 
             var createdDate = DateTime.UtcNow;
 
-            var expirationDate = createdDate.Add(new TimeSpan(0, 0, 60));
+            var Seconds = _setting.Seconds == null ? 60 : _setting.Seconds;
+
+            var expirationDate = createdDate.Add(new TimeSpan(0, 0, Seconds));
 
             var jwtHandler = new JwtSecurityTokenHandler();
 
