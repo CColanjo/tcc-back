@@ -34,5 +34,13 @@ namespace scheduleAppointment.Controllers
         {
              await _authenticationService.ChangePasswordAsync(request);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("forgot-password")]
+        public async Task<string> ForgotPassword([FromQuery] string user)
+        {
+           return await _authenticationService.ForgotPassword(user);
+        }
     }
 }

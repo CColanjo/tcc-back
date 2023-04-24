@@ -7,6 +7,7 @@ using schedule_appointment_domain.Model.Request;
 using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Settings;
 using scheduleAppointment_tests.Factories;
+using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -34,8 +35,8 @@ namespace scheduleAppointment_tests.Services
 
             var service = _factory.GetByUsernameAsync(fixture).CreateService();
 
-            var response = service.AuthenticateAsync(fixtureOAuthRequest);
-            Assert.IsType<TokenResponse>(await response);
+            var response = await service.AuthenticateAsync(fixtureOAuthRequest);
+            Assert.IsType<TokenResponse>(response);
         }
 
         [Fact]
@@ -140,6 +141,18 @@ namespace scheduleAppointment_tests.Services
             var response = service.ChangePasswordAsync(fixtureOAuthResetPasswordConfirmation);
             var exception = Assert.ThrowsAsync<BusinessException>(() => response);
             Assert.Contains("A senha deve conter caracteres especiais(%¨&amp;@), letras maiúsculas, letras minúscula e ter 10 caracteres", exception.Result.Message);
+        }
+
+        [Fact]
+        public async Task Authentication_Forgot_Password()
+        {
+            var fixture = _fixture.Create<User>();
+            var fixtureAPIKey = _fixture.Create<Apikey>();
+            var service = _factory.GetApiKey(fixtureAPIKey).GetByUsernameAsync(fixture).CreateService();
+
+            var response = await service.ForgotPassword(fixture.Username);
+            Assert.IsType<string>(response);
+            Assert.Contains("e usuário é correto o e-mail será enviado", response);
         }
     }
 }

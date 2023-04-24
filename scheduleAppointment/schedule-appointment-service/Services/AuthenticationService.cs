@@ -18,6 +18,8 @@ using System.Net;
 using System.Security.Claims;
 using System.Security.Principal;
 using schedule_appointment_domain.Helpers;
+using schedule_appointment_domain.Model.ViewModels;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 namespace schedule_appointment_service.Services
 {
@@ -27,16 +29,21 @@ namespace schedule_appointment_service.Services
         private readonly JwtCredentialsProvider _jwtCredentialsProvider;
         private readonly IUnitOfWork _uow;
         private readonly TokenSettings _setting;
-
+        private readonly IApikeyRepository _apikeyRepository;
+        private readonly ISendEmail _sendEmail;
         public AuthenticationService(IUserRepository userRepository, 
             JwtCredentialsProvider jwtCredentialsProvider,
             IUnitOfWork uow,
-            IOptions<TokenSettings> setting)
+            IOptions<TokenSettings> setting,
+            IApikeyRepository apikeyRepository,
+            ISendEmail sendEmail)
         {
             _userRepository = userRepository;
             _setting = setting.Value;
             _jwtCredentialsProvider = jwtCredentialsProvider;
-            _uow = uow; 
+            _uow = uow;
+            _apikeyRepository = apikeyRepository;
+            _sendEmail = sendEmail;
         }
 
         public async Task<TokenResponse> AuthenticateAsync(OAuthRequest authRequest)
@@ -72,7 +79,7 @@ namespace schedule_appointment_service.Services
 
             var createdDate = DateTime.UtcNow;
 
-            var Seconds = _setting.Seconds == null ? 60 : _setting.Seconds;
+            var Seconds = _setting == null ? 60 : _setting.Seconds;
 
             var expirationDate = createdDate.Add(new TimeSpan(0, 0, Seconds));
 
@@ -127,6 +134,8 @@ namespace schedule_appointment_service.Services
             }
             return "";
         }
+
+
 
         public bool ValidarSenha(string senha) {
            
@@ -192,6 +201,21 @@ namespace schedule_appointment_service.Services
             });
 
             return jwtHandler.WriteToken(refreshToken);
+        }
+
+        public async Task<string> ForgotPassword(string user)
+        {
+            var obj = await _userRepository.GetByUsernameAsync(user);
+
+            var apiKey = await _apikeyRepository.GetApikey("email");
+
+            if (obj != null) {
+
+                _sendEmail.SendEmailAsync(obj.Email, "Sua senha é " + obj.Password, obj.Name, apiKey.Key); 
+                
+            }
+
+            return "Se usuário é correto o e-mail será enviado";
         }
     }
 }
