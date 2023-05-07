@@ -139,6 +139,10 @@ namespace schedule_appointment_service.Services
                 }
             }
         }
+        public async Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesWasAttend()
+        {
+            return await _scheduleRepository.GetAllSchedulesWasAttend();
+        }
 
         public void SendMessageTwillio(string name, string cellphone, DateTime date, string professionalName)
         {
@@ -158,6 +162,9 @@ namespace schedule_appointment_service.Services
             {
                 throw new Exception("Ocorreu um erro, aguarde ou entre em contato com o responsável"); ;
             }
+
         }
+
+       
     }
 }

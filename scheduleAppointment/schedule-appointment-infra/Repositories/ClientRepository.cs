@@ -47,5 +47,6 @@ namespace schedule_appointment_infra.Repositories
                      }
              ).ToListAsync();
         }
+       
     }
 }

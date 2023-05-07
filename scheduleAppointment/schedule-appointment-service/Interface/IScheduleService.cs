@@ -1,4 +1,5 @@
-﻿using schedule_appointment_domain.Model.Pagination;
+﻿using schedule_appointment_domain.Model.Entities;
+using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using System;
@@ -19,5 +20,6 @@ namespace schedule_appointment_service.Interface
         Task<IEnumerable<ScheduleResponse>> GetAllSchedules();
         Task SendMessage();
         Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel clientPageableRequest);
+        Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesWasAttend();
     }
 }

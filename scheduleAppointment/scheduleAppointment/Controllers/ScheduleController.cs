@@ -3,6 +3,7 @@ using Hangfire;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Asn1.X500;
+using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
@@ -62,6 +63,13 @@ namespace Default.Project.Api.Controllers
         [HttpGet("schedules/paginatedbydate")]
         public async Task<Page<ScheduleListViewModel>> GetAllSchedulesByDatePageable([FromQuery] ScheduleFindListViewModel pageableRequest) {
             return await _service.GetAllPageableByDateAsync(pageableRequest);
+        }
+
+        [HttpGet("schedules/GetAllSchedulesWasAttend")]
+        public async Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesWasAttend()
+        {
+            return await _service.GetAllSchedulesWasAttend();
+             
         }
 
         [AllowAnonymous]

@@ -43,4 +43,10 @@ namespace schedule_appointment_domain.Model.ViewModels
     { 
 
     }
+
+    public record ScheduleBarChart 
+    {
+        public string Name { get; init; } = default!;
+        public int Value { get; init; } = default!;
+    }
 }

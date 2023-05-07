@@ -215,7 +215,7 @@ namespace schedule_appointment_service.Services
                 
             }
 
-            return "Se usuário é correto o e-mail será enviado";
+            return "Se usuário estiver correto o e-mail será enviado, verifique sua caixa de spam";
         }
     }
 }
