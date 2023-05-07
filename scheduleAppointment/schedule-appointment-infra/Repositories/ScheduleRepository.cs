@@ -76,6 +76,29 @@ namespace schedule_appointment_infra.Repositories
             ).ToListAsync();
         }
 
+        public async Task<IEnumerable<ScheduleResponse>> GetAll()
+        {
+            return await
+            (
+                 from schedule in _context.Schedule.AsNoTracking()
+                 join client in _context.Client.AsNoTracking()
+                 on schedule.ClientId equals client.Id
+                 join professional in _context.Professional.AsNoTracking()
+                 on schedule.ProfessionalId equals professional.Id 
+                 orderby schedule.ScheduleDate
+                 select
+                     new ScheduleResponse
+                     {
+                         ClientId = schedule.ClientId,
+                         ScheduleDate = schedule.ScheduleDate,
+                         WillAttend = schedule.WillAttend,
+                         NameClient = client.Name,
+                         Id = schedule.Id,
+                         NameProfessional = professional.Name
+                     }
+             ).ToListAsync();
+        }
+
         public async Task<IEnumerable<ScheduleResponse>> GetByDateAsync(DateTime scheduleDate)
         {
             return await

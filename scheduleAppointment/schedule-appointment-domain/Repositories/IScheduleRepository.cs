@@ -19,6 +19,8 @@ namespace schedule_appointment_domain.Repositories
         Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel schedulePageableRequest, DateTime scheduleDate);
         Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesWasAttend();
         Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesNotWasAttend();
-        
+        Task<IEnumerable<ScheduleResponse>> GetAll();
+
+
     }
 }

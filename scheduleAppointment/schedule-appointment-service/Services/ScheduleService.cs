@@ -172,7 +172,7 @@ namespace schedule_appointment_service.Services
 
         public async Task<byte[]> GenerateExcel()
         { 
-            var schedules = await _scheduleRepository.GetAllSchedules(); 
+            var schedules = await _scheduleRepository.GetAll(); 
 
             var sheets = _excelService.Initialize("Schedules");
 
@@ -183,7 +183,10 @@ namespace schedule_appointment_service.Services
 
             #region Header
 
-            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome";
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome Cliente";
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome Profissional";
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Será atendido?";
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Data de atendimento";
 
             #endregion
             foreach (var schedule in schedules)
@@ -192,7 +195,9 @@ namespace schedule_appointment_service.Services
                 ++rowIndex;
 
                 sheet.Cell(rowIndex, ++columnIndex).Value = schedule.NameClient;
-
+                sheet.Cell(rowIndex, ++columnIndex).Value = schedule.NameProfessional;
+                sheet.Cell(rowIndex, ++columnIndex).Value = schedule.WillAttend == true ? "Sim" : "Não" ;
+                sheet.Cell(rowIndex, ++columnIndex).Value = schedule.ScheduleDate.ToString("dd/MM/yyyy HH:mm");
             }
 
             sheet.Columns().AdjustToContents();
