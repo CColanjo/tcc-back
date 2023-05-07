@@ -155,6 +155,7 @@ namespace schedule_appointment_service.Services
                 user.Username = obj.Username;
                 user.Active = obj.Active;
                 user.IsAdmin = obj.IsAdmin;
+                user.Email = obj.Email;
                 _userRepository.Update(user);
 
             try
