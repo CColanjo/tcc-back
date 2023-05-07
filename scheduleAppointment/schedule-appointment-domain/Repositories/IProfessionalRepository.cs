@@ -11,6 +11,6 @@ namespace schedule_appointment_domain.Repositories
         Task<Professional?> GetByIdAsync(int id);
         Task<Page<ProfessionalListViewModel>> GetAllPageableAsync(ProfessionalFindListViewModel professionalPageableRequest);
         Task<IEnumerable<ProfessionalResponse>> GetProfessionals();
-     
+        Task<IEnumerable<ProfessionalBarChart>> GetAllProfessionalPerMonth();
     }
 }

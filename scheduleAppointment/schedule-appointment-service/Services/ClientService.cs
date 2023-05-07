@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using schedule_appointment_domain;
 using schedule_appointment_domain.Exceptions;
 using schedule_appointment_domain.Model.Entities;
@@ -21,12 +22,13 @@ namespace schedule_appointment_service.Services
     {
         private readonly IClientRepository _clientRepository;
         private readonly IUnitOfWork _uow;
- 
+        private readonly IExcelService _excelService;
 
-        public ClientService(IClientRepository clientRepository, IUnitOfWork uow)
+        public ClientService(IClientRepository clientRepository, IUnitOfWork uow, IExcelService excelService)
         {
             _clientRepository = clientRepository;
             _uow = uow;
+            _excelService = excelService;
         }
 
         public async Task<int> CreateAsync(ClientCreateViewModel clientCreateViewModel)
@@ -125,6 +127,41 @@ namespace schedule_appointment_service.Services
         {
             var clients = await _clientRepository.GetAllClientsPerMonth();
             return clients;
+        }
+
+        public async Task<byte[]> GenerateExcel()
+        {
+            string[] columnHeaders = { "Name" };
+            string[] columnProperties = { "Name", };
+            var clients = await _clientRepository.GetClients();
+
+
+            var sheets = _excelService.Initialize("Clients");
+
+            var sheet = sheets.First();
+
+            var rowIndex = 1;
+            var columnIndex = 0;
+
+            #region Header
+
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome";
+
+            #endregion
+            foreach (var client in clients)
+            {
+                columnIndex = 0;
+                ++rowIndex;
+
+                sheet.Cell(rowIndex, ++columnIndex).Value = client.Name;
+
+            }
+
+            sheet.Columns().AdjustToContents();
+
+            var report = _excelService.Generate();
+
+            return report;
         }
     }
 }

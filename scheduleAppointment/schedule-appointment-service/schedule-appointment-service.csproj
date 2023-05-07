@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="AWSSDK.Core" Version="3.7.12.13" />
+    <PackageReference Include="ClosedXML.Report" Version="0.2.6" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
     <PackageReference Include="Flurl.Http" Version="3.2.4" />
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="6.0.7" />

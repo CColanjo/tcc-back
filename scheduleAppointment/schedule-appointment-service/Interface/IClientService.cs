@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.AspNetCore.Mvc;
 using schedule_appointment_domain.Model.Entities;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.Response;
@@ -15,6 +16,6 @@ namespace schedule_appointment_service.Interface
         Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest);
         Task<IEnumerable<ClientResponse>> GetClients();
         Task<IEnumerable<ClientBarChart>> GetAllClientsPerMonth();
-        
+        Task<byte[]> GenerateExcel();
     }
 }

@@ -28,7 +28,8 @@ namespace schedule_appointment_service.Services
 
             var professional = new Professional
             {
-                Name = professionalCreateViewModel.Name
+                Name = professionalCreateViewModel.Name,
+                CreationDate = DateTime.UtcNow,
             };
 
             await _professionalRepository.CreateAsync(professional);
@@ -52,7 +53,11 @@ namespace schedule_appointment_service.Services
             var professionals = await _professionalRepository.GetAllPageableAsync(professionalPageableRequest);
             return professionals;
         }
-         
+
+        public async Task<IEnumerable<ProfessionalBarChart>> GetAllProfessionalPerMonth()
+        {
+            return await _professionalRepository.GetAllProfessionalPerMonth();
+        }
 
         public async Task<ProfessionalFindViewModel?> GetByIdAsync(int id)
         {

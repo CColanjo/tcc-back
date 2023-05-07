@@ -42,6 +42,7 @@ namespace schedule_appointment_infra_Ioc.Extensions
             services.AddScoped<IProfessionalService, ProfessionalService>();
             services.AddScoped<IUser, AspNetUser>();
             services.AddScoped<ISendEmail, SendEmail>();
+            services.AddScoped<IExcelService, ExcelService>();
             return services;
         }
 
