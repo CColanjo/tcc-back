@@ -121,6 +121,10 @@ namespace schedule_appointment_service.Services
             return clients;
         }
 
-    
+        public async Task<IEnumerable<ClientBarChart>> GetAllClientsPerMonth()
+        {
+            var clients = await _clientRepository.GetAllClientsPerMonth();
+            return clients;
+        }
     }
 }

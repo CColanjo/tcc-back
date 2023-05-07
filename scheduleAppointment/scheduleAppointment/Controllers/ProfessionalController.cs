@@ -45,6 +45,6 @@ namespace scheduleAppointment.Controllers
         public async Task<Page<ProfessionalListViewModel>> GetAllProfessionalPageable([FromQuery] ProfessionalFindListViewModel pageableRequest)
         {
             return await _service.GetAllPageableAsync(pageableRequest);
-        }
+        } 
     }
 }

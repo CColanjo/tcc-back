@@ -6,6 +6,8 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_infra.Extensions;
+using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
+using System.Text.RegularExpressions;
 using static schedule_appointment_domain.Model.ViewModels.ProfessionalViewModel;
 
 namespace schedule_appointment_infra.Repositories
@@ -21,7 +23,7 @@ namespace schedule_appointment_infra.Repositories
         public async Task<Page<ProfessionalListViewModel>> GetAllPageableAsync(ProfessionalFindListViewModel professionalPageableRequest)
         {
             return await _context.Professional.AsNoTracking().PageAsync<Professional, ProfessionalListViewModel>(professionalPageableRequest, _mapper);
-        }
+        } 
 
         public async Task<Professional?> GetByIdAsync(int id)
         {

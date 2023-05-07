@@ -3,7 +3,9 @@ using schedule_appointment.Utils;
 using schedule_appointment_domain.Model.Pagination;
 using schedule_appointment_domain.Model.ViewModels;
 using schedule_appointment_service.Interface;
+using schedule_appointment_service.Services;
 using scheduleAppointment.Controllers;
+using static schedule_appointment_domain.Model.ViewModels.ClientViewModel;
 
 namespace Default.Project.Api.Controllers
 { 
@@ -55,6 +57,12 @@ namespace Default.Project.Api.Controllers
         public async Task<Page<UserListViewModel>> GetAllUsersPageable([FromQuery] UserFindListViewModel pageableRequest)
         {
             return await _userService.GetAllPageableAsync(pageableRequest);
+        }
+
+        [HttpGet("users/GetAllUserPerMonth")]
+        public async Task<IEnumerable<UserBarChart>> GetAllUserPerMonth()
+        {
+            return await _userService.GetAllUserPerMonth();
         }
     }
 

@@ -14,5 +14,7 @@ namespace schedule_appointment_service.Interface
         Task<ClientFindViewModel?> GetByIdAsync(int id);
         Task<Page<ClientListViewModel>> GetAllPageableAsync(ClientFindListViewModel clientPageableRequest);
         Task<IEnumerable<ClientResponse>> GetClients();
+        Task<IEnumerable<ClientBarChart>> GetAllClientsPerMonth();
+        
     }
 }

@@ -72,6 +72,13 @@ namespace Default.Project.Api.Controllers
              
         }
 
+        [HttpGet("schedules/GetAllSchedulesNotWasAttend")]
+        public async Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesNotWasAttend()
+        {
+            return await _service.GetAllSchedulesNotWasAttend();
+
+        }
+
         [AllowAnonymous]
         [HttpGet("schedule/sendMessage")]
         public async Task SendMessage()

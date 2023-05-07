@@ -156,5 +156,21 @@ namespace schedule_appointment_infra.Repositories
             return result;
 
         }
+
+        public async Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesNotWasAttend()
+        {
+            DateTime currentMonth = DateTime.Now;
+            var result = await _context.Schedule.Where(a => a.WillAttend == false && a.ScheduleDate.Month <= currentMonth.Month).GroupBy(a => new { Month = a.ScheduleDate.Month })
+                .OrderBy(g => g.Key.Month)
+                .Select(g => new ScheduleBarChart
+                {
+                    Name = culture.DateTimeFormat.GetMonthName(g.Key.Month),
+                    Value = g.Count()
+                })
+            .ToListAsync();
+
+            return result;
+
+        }
     }
 }

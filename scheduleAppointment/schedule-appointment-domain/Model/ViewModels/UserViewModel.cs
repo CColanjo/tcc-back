@@ -41,4 +41,10 @@ namespace schedule_appointment_domain.Model.ViewModels
         public bool Active { get; init; }
 
     }
+
+    public class UserBarChart 
+    {
+        public string Name { get; set; }
+        public int Value { get; init; }
+    }
 }

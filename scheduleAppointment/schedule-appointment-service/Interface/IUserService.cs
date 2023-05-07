@@ -13,5 +13,7 @@ namespace schedule_appointment_service.Interface
         Task<bool> Disable(int id);
         Task<bool> Active(int id);
         Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest);
+
+        Task<IEnumerable<UserBarChart>> GetAllUserPerMonth();
     }
 }

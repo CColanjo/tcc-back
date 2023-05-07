@@ -46,5 +46,11 @@ namespace schedule_appointment_domain.Model.ViewModels
             public int Id { get; init; } = default!; 
              
         }
+
+        public record ClientBarChart
+        {
+            public string Name { get; init; } = default!;
+            public int Value { get; init; } = default!;
+        }
     }
 }

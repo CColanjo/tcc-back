@@ -7,6 +7,7 @@ using schedule_appointment_domain.Model.Response;
 using schedule_appointment_domain.Repositories;
 using schedule_appointment_service.Interface;
 using schedule_appointment_service.Localize;
+using System.Collections.Generic;
 using static schedule_appointment_domain.Model.ViewModels.ProfessionalViewModel;
 
 namespace schedule_appointment_service.Services
@@ -51,6 +52,7 @@ namespace schedule_appointment_service.Services
             var professionals = await _professionalRepository.GetAllPageableAsync(professionalPageableRequest);
             return professionals;
         }
+         
 
         public async Task<ProfessionalFindViewModel?> GetByIdAsync(int id)
         {

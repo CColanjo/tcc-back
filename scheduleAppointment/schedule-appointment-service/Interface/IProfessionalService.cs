@@ -18,5 +18,7 @@ namespace schedule_appointment_service.Interface
         Task<ProfessionalFindViewModel?> GetByIdAsync(int id);
         Task<Page<ProfessionalListViewModel>> GetAllPageableAsync(ProfessionalFindListViewModel professionalPageableRequest);
         Task<IEnumerable<ProfessionalResponse>> GetProfessionals();
+        
+        
     }
 }

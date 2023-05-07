@@ -176,6 +176,9 @@ namespace schedule_appointment_service.Services
             return users;
         }
 
-         
+        public async Task<IEnumerable<UserBarChart>> GetAllUserPerMonth()
+        {
+            return await _userRepository.GetAllUserPerMonth();
+        }
     }
 }

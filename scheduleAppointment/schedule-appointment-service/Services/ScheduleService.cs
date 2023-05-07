@@ -144,6 +144,11 @@ namespace schedule_appointment_service.Services
             return await _scheduleRepository.GetAllSchedulesWasAttend();
         }
 
+        public async Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesNotWasAttend()
+        {
+            return await _scheduleRepository.GetAllSchedulesNotWasAttend();
+        }
+        
         public void SendMessageTwillio(string name, string cellphone, DateTime date, string professionalName)
         {
             try

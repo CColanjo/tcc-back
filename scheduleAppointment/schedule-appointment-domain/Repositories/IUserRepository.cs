@@ -11,5 +11,6 @@ namespace schedule_appointment_domain.Repositories
         Task<User?> GetByIdAsync(int id); 
         Task<User?> GetByUsernameAsync(string username);
         Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest);
+        Task<IEnumerable<UserBarChart>> GetAllUserPerMonth();
     }
 }

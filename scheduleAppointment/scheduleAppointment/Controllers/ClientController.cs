@@ -44,11 +44,18 @@ namespace Default.Project.Api.Controllers
             return await _clientService.GetClients();
         }
 
+        [HttpGet("clients/GetAllClientsPerMonth")]
+        public async Task<IEnumerable<ClientBarChart>> GetAllClientsPerMonth()
+        {
+            return await _clientService.GetAllClientsPerMonth();
+        }
+
         [HttpGet("clients/paginated")]
         public async Task<Page<ClientListViewModel>> GetAllUsersPageable([FromQuery] ClientFindListViewModel pageableRequest)
         {
             return await _clientService.GetAllPageableAsync(pageableRequest);
         }
+
     }
 }
 
