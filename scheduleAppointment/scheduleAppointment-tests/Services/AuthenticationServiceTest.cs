@@ -152,7 +152,7 @@ namespace scheduleAppointment_tests.Services
 
             var response = await service.ForgotPassword(fixture.Username);
             Assert.IsType<string>(response);
-            Assert.Contains("e usuário é correto o e-mail será enviado", response);
+            Assert.Contains("Se usuário estiver correto o e-mail será enviado, verifique sua caixa de spam", response);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace scheduleAppointment_tests.Factories {
     public class ProfessionalServiceFactory {
         public readonly IProfessionalRepository _professionalRepository = Substitute.For<IProfessionalRepository>();
         public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
+        private readonly IExcelService _excelService = Substitute.For<IExcelService>();
 
         public ProfessionalServiceFactory GetByIdAsync(Professional professional) {
             _professionalRepository.GetByIdAsync(Arg.Any<int>()).Returns(professional);
@@ -39,7 +40,7 @@ namespace scheduleAppointment_tests.Factories {
         }
 
         public ProfessionalService CreateService() {
-            return new ProfessionalService(_professionalRepository, _uow);
+            return new ProfessionalService(_professionalRepository, _uow, _excelService);
         }
     }
 }

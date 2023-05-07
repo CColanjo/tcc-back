@@ -19,6 +19,7 @@ namespace scheduleAppointment_tests.Factories {
     public class ClientServiceFactory {
         public readonly IClientRepository _clientRepository = Substitute.For<IClientRepository>();
         public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
+        private readonly IExcelService _excelService = Substitute.For<IExcelService>();
         public ClientServiceFactory GetByIdAsync(Client client) {
             _clientRepository.GetByIdAsync(Arg.Any<int>()).Returns(client);
             return this;
@@ -41,7 +42,7 @@ namespace scheduleAppointment_tests.Factories {
 
 
         public ClientService CreateService() {
-            return new ClientService(_clientRepository, _uow);
+            return new ClientService(_clientRepository, _uow, _excelService);
         }
     }
 }

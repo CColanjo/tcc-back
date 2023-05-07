@@ -30,13 +30,13 @@ namespace schedule_appointment_service.Services
         private readonly IUnitOfWork _uow;
         private readonly TokenSettings _setting;
         private readonly IApikeyRepository _apikeyRepository;
-        private readonly ISendEmail _sendEmail;
+        private readonly ISendEmailService _sendEmail;
         public AuthenticationService(IUserRepository userRepository, 
             JwtCredentialsProvider jwtCredentialsProvider,
             IUnitOfWork uow,
             IOptions<TokenSettings> setting,
             IApikeyRepository apikeyRepository,
-            ISendEmail sendEmail)
+            ISendEmailService sendEmail)
         {
             _userRepository = userRepository;
             _setting = setting.Value;

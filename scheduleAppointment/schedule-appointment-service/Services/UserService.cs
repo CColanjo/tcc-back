@@ -19,14 +19,14 @@ namespace schedule_appointment_service.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _uow;
-        private readonly ISendEmail _sendEmail;
+        private readonly ISendEmailService _sendEmail;
         private readonly IApikeyRepository _apikeyRepository;
         private readonly IExcelService _excelService;
 
         public UserService(
             IUserRepository userRepository,
             IUnitOfWork uow,
-            ISendEmail sendEmail,
+            ISendEmailService sendEmail,
             IApikeyRepository apikeyRepository,
             IExcelService excelService 
             )

@@ -17,7 +17,7 @@ namespace scheduleAppointment_tests.Factories {
         private readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
         private readonly IOptions<TokenSettings> _setting = Substitute.For<IOptions<TokenSettings>>();
         private readonly IApikeyRepository _apikeyRepository = Substitute.For<IApikeyRepository>();
-        private readonly ISendEmail _sendEmail = Substitute.For<ISendEmail>();
+        private readonly ISendEmailService _sendEmail = Substitute.For<ISendEmailService>();
 
         public AuthenticationServiceFactory GetByUsernameAsync(User user) {
             _userRepository.GetByUsernameAsync(Arg.Any<string>()).Returns(user);

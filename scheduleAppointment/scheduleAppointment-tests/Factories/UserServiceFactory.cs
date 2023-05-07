@@ -16,10 +16,12 @@ using System.Threading.Tasks;
 
 namespace scheduleAppointment_tests.Factories {
     public class UserServiceFactory {
-        public readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
-        public readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
-        public readonly ISendEmail _sendEmail = Substitute.For<ISendEmail>();
-        public readonly IApikeyRepository _apikeyRepository = Substitute.For<IApikeyRepository>();
+        private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
+        private readonly IUnitOfWork _uow = Substitute.For<IUnitOfWork>();
+        private readonly ISendEmailService _sendEmail = Substitute.For<ISendEmailService>();
+        private readonly IApikeyRepository _apikeyRepository = Substitute.For<IApikeyRepository>();
+        private readonly IExcelService _excelService = Substitute.For<IExcelService>();
+
         public UserServiceFactory GetAllAsync(IEnumerable<User> users) {
             _userRepository.GetAllAsync().Returns(users);
             return this;
@@ -57,7 +59,7 @@ namespace scheduleAppointment_tests.Factories {
         } 
 
         public UserService CreateService() {
-            return new UserService(_userRepository, _uow, _sendEmail, _apikeyRepository);
+            return new UserService(_userRepository, _uow, _sendEmail, _apikeyRepository, _excelService);
         }
     }
 }
