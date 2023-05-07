@@ -16,12 +16,13 @@ namespace schedule_appointment_service.Services
     {
         private readonly IProfessionalRepository _professionalRepository;
         private readonly IUnitOfWork _uow;
+        private IExcelService _excelService;
 
-        public ProfessionalService(IProfessionalRepository professionalRepository, IUnitOfWork uow)
+        public ProfessionalService(IProfessionalRepository professionalRepository, IUnitOfWork uow, IExcelService excelService)
         {
             _professionalRepository = professionalRepository;
             _uow = uow;
-
+            _excelService = excelService;
         }
         public async Task<int> CreateAsync(ProfessionalCreateViewModel professionalCreateViewModel)
         {
@@ -111,6 +112,41 @@ namespace schedule_appointment_service.Services
             }
 
             return obj.Id;
+        }
+
+        public async Task<byte[]> GenerateExcel()
+        {
+            string[] columnHeaders = { "Name" };
+            string[] columnProperties = { "Name", };
+            var professionals = await _professionalRepository.GetProfessionals(); ;
+
+
+            var sheets = _excelService.Initialize("Professional");
+
+            var sheet = sheets.First();
+
+            var rowIndex = 1;
+            var columnIndex = 0;
+
+            #region Header
+
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome";
+
+            #endregion
+            foreach (var professional in professionals)
+            {
+                columnIndex = 0;
+                ++rowIndex;
+
+                sheet.Cell(rowIndex, ++columnIndex).Value = professional.Name;
+
+            }
+
+            sheet.Columns().AdjustToContents();
+
+            var report = _excelService.Generate();
+
+            return report;
         }
     }
 }

@@ -79,6 +79,22 @@ namespace Default.Project.Api.Controllers
 
         }
 
+
+        [HttpGet("schedules/excel")]
+        public async Task<IActionResult> GenerateExcel()
+        {
+            byte[] excelBytes = await _service.GenerateExcel();
+
+            // Set the file name for the downloaded file
+            string fileName = "myfile.xlsx";
+
+            // Set the MIME type for the Excel file
+            string mimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+            // Return the Excel file as the HTTP response
+            return File(excelBytes, mimeType, fileName);
+        }
+
         [AllowAnonymous]
         [HttpGet("schedule/sendMessage")]
         public async Task SendMessage()

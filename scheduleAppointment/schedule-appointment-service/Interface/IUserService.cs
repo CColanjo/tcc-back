@@ -12,8 +12,8 @@ namespace schedule_appointment_service.Interface
         Task<UserFindViewModel?> GetByIdAsync(int id);
         Task<bool> Disable(int id);
         Task<bool> Active(int id);
-        Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest);
-
+        Task<Page<UserListViewModel>> GetAllPageableAsync(UserFindListViewModel userPageableRequest); 
         Task<IEnumerable<UserBarChart>> GetAllUserPerMonth();
+        Task<byte[]> GenerateExcel();
     }
 }

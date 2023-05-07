@@ -22,6 +22,6 @@ namespace schedule_appointment_service.Interface
         Task<Page<ScheduleListViewModel>> GetAllPageableByDateAsync(ScheduleFindListViewModel clientPageableRequest);
         Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesWasAttend();
         Task<IEnumerable<ScheduleBarChart>> GetAllSchedulesNotWasAttend();
-        
+        Task<byte[]> GenerateExcel();
     }
 }

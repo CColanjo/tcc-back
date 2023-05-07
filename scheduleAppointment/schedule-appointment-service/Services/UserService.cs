@@ -21,18 +21,21 @@ namespace schedule_appointment_service.Services
         private readonly IUnitOfWork _uow;
         private readonly ISendEmail _sendEmail;
         private readonly IApikeyRepository _apikeyRepository;
+        private readonly IExcelService _excelService;
 
         public UserService(
             IUserRepository userRepository,
             IUnitOfWork uow,
             ISendEmail sendEmail,
-            IApikeyRepository apikeyRepository
+            IApikeyRepository apikeyRepository,
+            IExcelService excelService 
             )
         {
             _userRepository = userRepository;
             _uow = uow;
             _sendEmail = sendEmail;
             _apikeyRepository = apikeyRepository;
+            _excelService = excelService;
         }
 
         public async Task<bool> Active(int id)
@@ -179,6 +182,38 @@ namespace schedule_appointment_service.Services
         public async Task<IEnumerable<UserBarChart>> GetAllUserPerMonth()
         {
             return await _userRepository.GetAllUserPerMonth();
+        }
+
+        public async Task<byte[]> GenerateExcel()
+        {
+            var users = await _userRepository.GetAllAsync();
+
+            var sheets = _excelService.Initialize("Schedules");
+
+            var sheet = sheets.First();
+
+            var rowIndex = 1;
+            var columnIndex = 0;
+
+            #region Header
+
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome";
+
+            #endregion
+            foreach (var user in users)
+            {
+                columnIndex = 0;
+                ++rowIndex;
+
+                sheet.Cell(rowIndex, ++columnIndex).Value = user.Name;
+
+            }
+
+            sheet.Columns().AdjustToContents();
+
+            var report = _excelService.Generate();
+
+            return report;
         }
     }
 }

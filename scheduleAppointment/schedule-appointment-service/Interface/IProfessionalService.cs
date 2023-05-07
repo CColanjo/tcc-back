@@ -19,6 +19,8 @@ namespace schedule_appointment_service.Interface
         Task<Page<ProfessionalListViewModel>> GetAllPageableAsync(ProfessionalFindListViewModel professionalPageableRequest);
         Task<IEnumerable<ProfessionalResponse>> GetProfessionals();
         Task<IEnumerable<ProfessionalBarChart>> GetAllProfessionalPerMonth();
-        
+        Task<byte[]> GenerateExcel();
+
+
     }
 }

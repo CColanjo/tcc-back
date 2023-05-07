@@ -28,13 +28,13 @@ namespace schedule_appointment_service.Services
     {
         private readonly IScheduleRepository _scheduleRepository;
         private readonly IUnitOfWork _uow;
+        private readonly IExcelService _excelService;
 
-
-        public ScheduleService(IScheduleRepository scheduleRepository, IUnitOfWork uow)
+        public ScheduleService(IScheduleRepository scheduleRepository, IUnitOfWork uow, IExcelService excelService)
         {
             _scheduleRepository = scheduleRepository;
             _uow = uow;
-
+            _excelService = excelService;
         }
 
         public async Task<int> CreateAsync(ScheduleCreateViewModel scheduleCreateViewModel)
@@ -170,6 +170,38 @@ namespace schedule_appointment_service.Services
 
         }
 
-       
+        public async Task<byte[]> GenerateExcel()
+        { 
+            var schedules = await _scheduleRepository.GetAllSchedules(); 
+
+            var sheets = _excelService.Initialize("Schedules");
+
+            var sheet = sheets.First();
+
+            var rowIndex = 1;
+            var columnIndex = 0;
+
+            #region Header
+
+            sheet.Cell(rowIndex, ++columnIndex).Value = "Nome";
+
+            #endregion
+            foreach (var schedule in schedules)
+            {
+                columnIndex = 0;
+                ++rowIndex;
+
+                sheet.Cell(rowIndex, ++columnIndex).Value = schedule.NameClient;
+
+            }
+
+            sheet.Columns().AdjustToContents();
+
+            var report = _excelService.Generate();
+
+            return report;
+        }
+
+
     }
 }
