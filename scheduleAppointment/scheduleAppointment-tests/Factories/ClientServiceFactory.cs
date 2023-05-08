@@ -31,10 +31,17 @@ namespace scheduleAppointment_tests.Factories {
             return this; 
         }
 
-        public ClientServiceFactory GetClients(IEnumerable<ClientResponse> clients) {
-            _clientRepository.GetClients().Returns(clients);
-            return this; 
+        public ClientServiceFactory GetClients(List<ClientResponse> clientResponse)
+        {
+            _clientRepository.GetClients().Returns(clientResponse);
+            return this;
         }
+        public ClientServiceFactory GetAllClientsPerMonth(List<ClientBarChart> ClientBarChart)
+        {
+            _clientRepository.GetAllClientsPerMonth().Returns(ClientBarChart);
+            return this;
+        } 
+
         public ClientServiceFactory CreateAsync() {
             _clientRepository.CreateAsync(Arg.Any<Client>());
             return this;

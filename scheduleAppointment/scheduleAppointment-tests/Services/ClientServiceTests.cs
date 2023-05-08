@@ -74,6 +74,28 @@ namespace scheduleAppointment_tests.Services
 
             var response = await service.GetAllPageableAsync(fixtureClientFindListViewModel);
             Assert.IsType<Page<ClientListViewModel>>(response);
-        }  
+        }
+
+        [Fact]
+        public async Task Client_GetClients_Success()
+        { 
+            var fixtureClientResponse = _fixture.Create<List<ClientResponse>>();
+            var service = _factory.GetClients(fixtureClientResponse).CreateService();
+
+            var response = await service.GetClients();
+            Assert.IsType<List<ClientResponse>>(response);
+        }
+
+
+        [Fact]
+        public async Task Client_GetAllClientsPerMonth_Success()
+        {
+            var fixtureClientBarChart = _fixture.Create<List<ClientBarChart>>();
+            var service = _factory.GetAllClientsPerMonth(fixtureClientBarChart).CreateService();
+
+            var response =  service.GetAllClientsPerMonth();
+            Assert.IsType<List<ClientBarChart>>(await response);
+        } 
+      
     }
 }
